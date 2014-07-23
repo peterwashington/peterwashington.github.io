@@ -23,6 +23,7 @@
 				E4: 'sounds/E4.mp3',
 				G4: 'sounds/G4.mp3',
 				C5: 'sounds/C5.mp3',
+				D5: 'sounds/D5.mp3',
 				E5: 'sounds/E5.mp3'
 			});
 		};
@@ -32,10 +33,14 @@
 			var startTime = context.currentTime + 0.100;
 
 			for (var beat = 0; beat < 16; beat++) {
-				playSound(A4, startTime + beat);
-				playSound(C5, startTime + beat);
-				playSound(E5, startTime + beat);
+				playSound(this.A4, startTime + beat);
+				playSound(this.C4, startTime + beat);
+				playSound(this.E4, startTime + beat);
 			}
+
+			playSound(this.E4, startTime);
+			playSound(this.D4, startTime + 1);
+			playSound(this.C4, startTime + 2);
 
 
 		};

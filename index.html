@@ -18,31 +18,26 @@
 		var RhythmSample = function() {
 			loadSounds(this, {
 				A4: 'sounds/A4.mp3',
+				C4: 'sounds/C4.mp3',
+				D4: 'sounds/D4.mp3',
+				E4: 'sounds/E4.mp3',
+				G4: 'sounds/G4.mp3',
 				C5: 'sounds/C5.mp3',
 				E5: 'sounds/E5.mp3'
 			});
 		};
 
 		RhythmSample.prototype.play = function() {
-			// We'll start playing the rhythm 100 milliseconds from "now"
+			// Start playing the rhythm 100 milliseconds from "now"
 			var startTime = context.currentTime + 0.100;
-			var tempo = 80; // BPM (beats per minute)
-			var eighthNoteTime = (60 / tempo) / 2;
 
 			for (var beat = 0; beat < 16; beat++) {
-				playSound(this.C5, startTime + beat * 10);
+				playSound(A4, startTime + beat);
+				playSound(C5, startTime + beat);
+				playSound(E5, startTime + beat);
 			}
 
-			// for (var bar = 0; bar < 8; bar++) {
-			// 	var time = startTime + bar * 8 * eighthNoteTime;
-			// 	// Play chord on beats 1, 5
-			// 	playSound(this.C5, time);
-			// 	playSound(this.C5, time + 4 * eighthNoteTime);
-			// 	playSound(this.E5, time);
-			// 	playSound(this.E5, time + 4 * eighthNoteTime);
-			// 	playSound(this.A4, time);
-			// 	playSound(this.A4, time + 4 * eighthNoteTime);
-			// }
+
 		};
 
 		var sample = new RhythmSample();

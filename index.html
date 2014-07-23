@@ -18,14 +18,22 @@
 		var Piece = function() {
 			loadSounds(this, {
 				A4: 'sounds/A4.mp3',
+				B4: 'sounds/B4.mp3',
 				C4: 'sounds/C4.mp3',
 				D4: 'sounds/D4.mp3',
 				E4: 'sounds/E4.mp3',
+				F4: 'sounds/F4.mp3',
 				G4: 'sounds/G4.mp3',
+				A5: 'sounds/A5.mp3',
+				B5: 'sounds/B5.mp3',
 				C5: 'sounds/C5.mp3',
 				D5: 'sounds/D5.mp3',
 				E5: 'sounds/E5.mp3',
-				G5: 'sounds/G5.mp3'
+				F5: 'sounds/F5.mp3',
+				G5: 'sounds/G5.mp3',
+				A6: 'sounds/A6.mp3',
+				B6: 'sounds/B6.mp3',
+				C6: 'sounds/C6.mp3'
 			});
 		};
 
@@ -40,7 +48,7 @@
 				playSound(this.C4, startTime + beat);
 				playSound(this.E4, startTime + beat);
 
-				playSound(this.E4, startTime + beat);
+				playSound(melody[beat], startTime + beat);
 			}
 		};
 

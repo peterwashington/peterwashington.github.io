@@ -17,9 +17,9 @@
 	<script>
 		var RhythmSample = function() {
 			loadSounds(this, {
-				kick: 'sounds/A4.mp3',
-				snare: 'sounds/C5.mp3',
-				hihat: 'sounds/E5.mp3'
+				A4: 'sounds/A4.mp3',
+				C5: 'sounds/C5.mp3',
+				E5: 'sounds/E5.mp3'
 			});
 		};
 
@@ -29,28 +29,25 @@
 			var tempo = 80; // BPM (beats per minute)
 			var eighthNoteTime = (60 / tempo) / 2;
 
-			// Play 2 bars of the following:
-			for (var bar = 0; bar < 2; bar++) {
+			// Play 8 bars of the following:
+			for (var bar = 0; bar < 8; bar++) {
 				var time = startTime + bar * 8 * eighthNoteTime;
-				// Play the bass (kick) drum on beats 1, 5
-				playSound(this.kick, time);
-				playSound(this.kick, time + 4 * eighthNoteTime);
-
-				// Play the snare drum on beats 3, 7
-				playSound(this.snare, time + 2 * eighthNoteTime);
-				playSound(this.snare, time + 6 * eighthNoteTime);
-
-				// Play the hi-hat every eighthh note.
-				for (var i = 0; i < 8; ++i) {
-					playSound(this.hihat, time + i * eighthNoteTime);
-				}
+				// Play chord on beats 1, 5
+				playSound(this.C5, time);
+				playSound(this.C5, time + 4 * eighthNoteTime);
+				playSound(this.E5, time);
+				playSound(this.E5, time + 4 * eighthNoteTime);
+				playSound(this.G5, time);
+				playSound(this.G5, time + 4 * eighthNoteTime);
 			}
 		};
 
 		var sample = new RhythmSample();
+
 		document.querySelector('button').addEventListener('click', function() {
 			sample.play();
 		});
+
 	</script>
 
 

@@ -15,7 +15,7 @@
 	<script src="shared.js"></script>
 
 	<script>
-		var RhythmSample = function() {
+		var Piece = function() {
 			loadSounds(this, {
 				A4: 'sounds/A4.mp3',
 				C4: 'sounds/C4.mp3',
@@ -24,28 +24,27 @@
 				G4: 'sounds/G4.mp3',
 				C5: 'sounds/C5.mp3',
 				D5: 'sounds/D5.mp3',
-				E5: 'sounds/E5.mp3'
+				E5: 'sounds/E5.mp3',
+				G5: 'sounds/G5.mp3'
 			});
 		};
 
-		RhythmSample.prototype.play = function() {
+		Piece.prototype.play = function() {
 			// Start playing the rhythm 100 milliseconds from "now"
 			var startTime = context.currentTime + 0.100;
 
-			for (var beat = 0; beat < 16; beat++) {
+			var melody = [this.E5, this.D5, this.C5, this.D5, this.E5, this.E5, this.E5, this.C5];
+
+			for (var beat = 0; beat < 8; beat++) {
 				playSound(this.A4, startTime + beat);
 				playSound(this.C4, startTime + beat);
 				playSound(this.E4, startTime + beat);
+
+				playSound(this.E4, startTime + beat);
 			}
-
-			playSound(this.E4, startTime);
-			playSound(this.D4, startTime + 1);
-			playSound(this.C4, startTime + 2);
-
-
 		};
 
-		var sample = new RhythmSample();
+		var sample = new Piece();
 
 		document.querySelector('button').addEventListener('click', function() {
 			sample.play();

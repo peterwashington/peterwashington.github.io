@@ -3,18 +3,98 @@
 
 <head>
 	<title>Chord Accompaniments</title>
+
+	<script type="text/javascript">
+
+ 	/*
+	 * Inputs: duration --- the interval at which to call the function
+	 * 		   fn       --- the function to call
+	 *
+	 * Replaces setTimeout() with a more accurate version.
+	 */
+	function interval(duration, fn) {
+
+		this.baseline = undefined;
+		this.duration = duration;
+
+		this.run = function() {
+		    if (this.baseline === undefined) {
+		    	this.baseline = new Date().getTime();
+		    }
+		    fn();
+		    var end = new Date().getTime();
+		    this.baseline += this.duration;
+		    var nextTick = this.duration - (end - this.baseline);
+		    if (nextTick < 0) {
+		      nextTick = 0;
+		    }
+		    (function(i) {
+		        i.timer = setTimeout(function() {
+		        	i.run(end);
+		      	}, nextTick)
+		    }) (this)
+	  	}
+
+		this.end = function() {
+	   		clearTimeout(this.timer);
+	   		this.baseline = undefined;
+	 	}
+
+	 	// Work on this later to be able to add a "tempo" control.
+	 	this.setDuration = function(dur) {
+	 		this.end();
+	 		this.duration = dur;
+	 		this.baseline = new Date().getTime();
+	 		this.run();
+	 	}
+	}
+
+	</script>
 </head>
 
 <body>
-</body>
 
 	<p>
 		<button style="display: block">Play/pause</button>
 	</p>
 
-	<script src="shared.js"></script>
+	<div id="display">
+		<h2>C Major:</h2>
+		<table>
+			<tr>
+				<canvas id="score" width="1000" height="120"></canvas>
+				<canvas id="score2" width="1000" height="140"></canvas>
+			</tr>
+		</table>
+	</div>
+
+
+	<script src="js/shared.js"></script>
+	<!--Vexflow-->
+	<script src="js/vexflow.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/jquery-1.6.2.min.js"></script>
 
 	<script>
+
+		// The current tempo (in milliseconds).
+		var tempo = 1000;
+
+		// Music notation.
+		var canvas = $("#score")[0];
+		var canvas2 = $("#score2")[0];
+		var renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.CANVAS);
+		var renderer2 = new Vex.Flow.Renderer(canvas2, Vex.Flow.Renderer.Backends.CANVAS);
+		var ctx = renderer.getContext();
+		var ctx2 = renderer2.getContext();
+		var last_stave = new Vex.Flow.Stave(0, 0, 60);
+		var last_stave2 = new Vex.Flow.Stave(0, 0, 60);
+
+		var draw_canvas = function() {
+			last_stave.addClef("treble").setContext(ctx).draw();
+			last_stave2.addClef("bass").setContext(ctx2).draw();
+		};
+
 		var Piece = function() {
 			loadSounds(this, {
 				A4: 'sounds/A4.mp3',
@@ -60,5 +140,6 @@
 
 	</script>
 
+</body>
 
 </html>

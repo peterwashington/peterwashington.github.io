@@ -43,21 +43,21 @@
 		var player = new Player();
 		var test_midi = [Player.C4, Player.E4, Player.G4];
 
-		var play = function(notes) {
+		var play = function() {
 			// Start playing the rhythm 100 milliseconds from "now"
 			var startTime = context.currentTime + 0.100;
 
 			//var melody = [this.E5, this.D5, this.C5, this.D5, this.E5, this.E5, this.E5, this.C5];
 
 			for (var beat = 0; beat < 8; beat++) {
-				playSound(test_midi[0], startTime + beat);
-				playSound(test_midi[1], startTime + beat);
-				playSound(test_midi[2], startTime + beat);
+				playSound(player.C4, startTime + beat);
+				playSound(player.E4, startTime + beat);
+				playSound(player.G4, startTime + beat);
 			}
 		};
 
 		document.querySelector('button').addEventListener('click', function() {
-			play(["C4", "E5"]);
+			play();
 		});
 
 	</script>

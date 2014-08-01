@@ -41,7 +41,7 @@
 			});
 		};
 
-		var player = Player();
+		var player = new Player();
 
 		var play = function() {
 			// Start playing the rhythm 100 milliseconds from "now"
@@ -50,7 +50,7 @@
 			//var melody = [this.E5, this.D5, this.C5, this.D5, this.E5, this.E5, this.E5, this.C5];
 
 			for (var beat = 0; beat < 8; beat++) {
-				playSound(player.A4, startTime + beat);
+				playSound(playerA4, startTime + beat);
 				playSound(player.C4, startTime + beat);
 				playSound(player.E4, startTime + beat);
 
@@ -58,6 +58,7 @@
 			}
 		};
 
+		
 
 		document.querySelector('button').addEventListener('click', function() {
 			play();

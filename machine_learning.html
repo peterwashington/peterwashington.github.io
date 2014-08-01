@@ -345,6 +345,9 @@
 		});
 
 		var Player = function() {
+
+			this.noteMap = {"C5": this.C5};
+
 			loadSounds(this, {
 				A4: 'sounds/A4.mp3',
 				B4: 'sounds/B4.mp3',
@@ -366,8 +369,6 @@
 			});
 		};
 
-		Player.prototype.noteMap = {"C5": this.C5};
-
 		Player.prototype.play = function(notes) {
 			// Start playing the rhythm 100 milliseconds from "now"
 			var startTime = context.currentTime + 0.100;
@@ -379,7 +380,7 @@
 				// playSound(this.C4, startTime + beat);
 				// playSound(this.E4, startTime + beat);
 
-				playSound(noteMap[notes[beat]], startTime + beat);
+				playSound(this.noteMap[notes[beat]], startTime + beat);
 			}
 		};
 

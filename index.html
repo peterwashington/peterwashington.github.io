@@ -49,10 +49,14 @@
 
 			//var melody = [this.E5, this.D5, this.C5, this.D5, this.E5, this.E5, this.E5, this.C5];
 
+			var c=player.C4;
+			var e=player.E4;
+			var g=player.G4;
+
 			for (var beat = 0; beat < 8; beat++) {
-				playSound(player.C4, startTime + beat);
-				playSound(player.E4, startTime + beat);
-				playSound(player.G4, startTime + beat);
+				playSound(c, startTime + beat);
+				playSound(e, startTime + beat);
+				playSound(g, startTime + beat);
 			}
 		};
 

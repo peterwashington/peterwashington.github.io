@@ -53,8 +53,10 @@
 			var e=player.E4;
 			var g=player.G4;
 
+			var test_midi = {"C5": c};
+
 			for (var beat = 0; beat < 8; beat++) {
-				playSound(c, startTime + beat);
+				playSound(test_midi["C5"], startTime + beat);
 				playSound(e, startTime + beat);
 				playSound(g, startTime + beat);
 			}

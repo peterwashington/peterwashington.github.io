@@ -346,7 +346,6 @@
 
 
 		var Player = function() {
-
 			loadSounds(this, {
 				A4: 'sounds/A4.mp3',
 				B4: 'sounds/B4.mp3',
@@ -368,24 +367,26 @@
 			});
 		};
 
-		Player.prototype.play = function(notes) {
+		Player.prototype.play = function() {
 			// Start playing the rhythm 100 milliseconds from "now"
 			var startTime = context.currentTime + 0.100;
 
-			//var melody = [this.E5, this.D5, this.C5, this.D5, this.E5, this.E5, this.E5, this.C5];
+			var melody = [this.E5, this.D5, this.C5, this.D5, this.E5, this.E5, this.E5, this.C5];
 
 			for (var beat = 0; beat < 8; beat++) {
-				// playSound(this.A4, startTime + beat);
-				// playSound(this.C4, startTime + beat);
-				// playSound(this.E4, startTime + beat);
+				playSound(this.A4, startTime + beat);
+				playSound(this.C4, startTime + beat);
+				playSound(this.E4, startTime + beat);
 
-				playSound(this.C5, startTime + beat);
+				playSound(melody[beat], startTime + beat);
 			}
 		};
 
 		var sample = new Player();
 
-		sample.play(["C5", "C5", "C5", "C5", "C5", "C5", "C5", "C5"]);
+		document.querySelector('button').addEventListener('click', function() {
+			sample.play();
+		});
 
 		</script>
 	</body>

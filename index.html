@@ -41,25 +41,26 @@
 			});
 		};
 
-		Player.prototype.play = function() {
+		var player = Player();
+
+		var play = function() {
 			// Start playing the rhythm 100 milliseconds from "now"
 			var startTime = context.currentTime + 0.100;
 
-			var melody = [this.E5, this.D5, this.C5, this.D5, this.E5, this.E5, this.E5, this.C5];
+			//var melody = [this.E5, this.D5, this.C5, this.D5, this.E5, this.E5, this.E5, this.C5];
 
 			for (var beat = 0; beat < 8; beat++) {
-				playSound(this.A4, startTime + beat);
-				playSound(this.C4, startTime + beat);
-				playSound(this.E4, startTime + beat);
+				playSound(player.A4, startTime + beat);
+				playSound(player.C4, startTime + beat);
+				playSound(player.E4, startTime + beat);
 
-				playSound(melody[beat], startTime + beat);
+				//playSound(melody[beat], startTime + beat);
 			}
 		};
 
-		var sample = new Player();
 
 		document.querySelector('button').addEventListener('click', function() {
-			sample.play();
+			play();
 		});
 
 	</script>

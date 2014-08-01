@@ -344,9 +344,8 @@
 			}
 		});
 
-		var Player = function() {
 
-			this.noteMap = {"C5": this.C5};
+		var Player = function() {
 
 			loadSounds(this, {
 				A4: 'sounds/A4.mp3',
@@ -380,7 +379,7 @@
 				// playSound(this.C4, startTime + beat);
 				// playSound(this.E4, startTime + beat);
 
-				playSound(this.noteMap[notes[beat]], startTime + beat);
+				playSound(Player.C5, startTime + beat);
 			}
 		};
 

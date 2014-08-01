@@ -19,7 +19,7 @@
 
 	<script>
 
-		var Piece = function() {
+		var Player = function() {
 			loadSounds(this, {
 				A4: 'sounds/A4.mp3',
 				B4: 'sounds/B4.mp3',
@@ -41,7 +41,7 @@
 			});
 		};
 
-		Piece.prototype.play = function() {
+		Player.prototype.play = function() {
 			// Start playing the rhythm 100 milliseconds from "now"
 			var startTime = context.currentTime + 0.100;
 
@@ -56,7 +56,7 @@
 			}
 		};
 
-		var sample = new Piece();
+		var sample = new Player();
 
 		document.querySelector('button').addEventListener('click', function() {
 			sample.play();

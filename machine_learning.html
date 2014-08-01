@@ -16,6 +16,8 @@
 
  <script type="text/javascript">
 
+
+
  	/*
 	 * Inputs: duration --- the interval at which to call the function
 	 * 		   fn       --- the function to call
@@ -59,105 +61,87 @@
 
 	var t = 1;
 
+	function draw_notes(notes) {
+		var staff_notes = [];
+		for (var i = 0; i < notes.length; i++) {
+			var note = notes[i];
+			// Convert note.
+			if (note.length === 2) {
+				var new_note = new Vex.Flow.StaveNote({ keys: [note.toLowerCase().substring(0, 1) + "/" + note.substring(1, 2)], duration: "q" });
+			}
+			else {
+				var new_note = new Vex.Flow.StaveNote({ keys: [note.toLowerCase().substring(0, 2) + "/" + note.substring(2, 3)], duration: "q" });
+			}
+			// Play note.
+			if (note.length === 2) {
+				staff_notes.push(new_note);
+			}
+			else {
+				if (note.substring(1, 2) === "#") {
+					staff_notes.push(new_note.addAccidental(0, new Vex.Flow.Accidental("#")));
+				}
+				else {
+					staff_notes.push(new_note.addAccidental(0, new Vex.Flow.Accidental("b")));
+				}
+			}
+		}
+
+		// Create a voice in 4/4.
+		var voice = new Vex.Flow.Voice({
+			num_beats: 4,
+			beat_value: 4,
+			resolution: Vex.Flow.RESOLUTION
+		});
+		// Add notes to voice
+		voice.addTickables(staff_notes);
+		var formatter = new Vex.Flow.Formatter().joinVoices([voice]).format([voice], 200);
+		// Render voice
+		voice.draw(ctx, stave);	
+	}
+
 	 /*
 	  * Draw notes on the canvas.
 	  */
-	function draw_state(note, chord) {
-	  // DRAW NOTE
-	  measure += 1;
-	  if (measure === 12) {
-	  	trebleClicks = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, 11:0, 12:0};
-		bassClicks = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, 11:0, 12:0};
-	  	measure = 0;
-	  	t = 1;
-	  	last_stave.x = 10;
-        ctx.clear();
-        last_stave = new Vex.Flow.Stave(0, 0, 60);
-		last_stave.addClef("treble").setContext(ctx).draw();
-	  }
-      var stave = new Vex.Flow.Stave(last_stave.width + last_stave.x, 0, 60);
-      if (measure === 0 && first_time === 1) {
-      	stave.addClef("treble").setContext(ctx).draw();
-      	first_time = 1;
-      }
-      else {
-      	stave.setContext(ctx).draw();
-      }
-      // Convert note.
-      if (note.length === 2) {
-      	var new_note = new Vex.Flow.StaveNote({ keys: [note.toLowerCase().substring(0, 1) + "/" + note.substring(1, 2)], duration: "q" });
-      }
-	  else {
-	  	var new_note = new Vex.Flow.StaveNote({ keys: [note.toLowerCase().substring(0, 2) + "/" + note.substring(2, 3)], duration: "q" });
-	  }
-	  var staff_notes = [];
-	  // Play note.
-	  if (note.length === 2) {
-	    staff_notes.push(new_note);
-	  }
-	  else {
-	  	if (note.substring(1, 2) === "#") {
-	  		staff_notes.push(new_note.addAccidental(0, new Vex.Flow.Accidental("#")));
-	  	}
-	  	else {
-	  		staff_notes.push(new_note.addAccidental(0, new Vex.Flow.Accidental("b")));
-	  	}
-	  }
-	  // Create a voice in 1/4.
-	  var voice = new Vex.Flow.Voice({
-	    num_beats: 1,
-	    beat_value: 4,
-	    resolution: Vex.Flow.RESOLUTION
-	  });
-	  // Add notes to voice
-	  voice.addTickables(staff_notes);
-	  console.log(staff_notes);
-	  // Format and justify the notes to 500 pixels
-	  var formatter = new Vex.Flow.Formatter().joinVoices([voice]).format([voice], 500);
-	  // Render voice
-	  voice.draw(ctx, stave);
-	  last_stave = stave;
-
-
-	  // DRAW CHORD
-	  measure2 += 1;
-	  if (measure2 === 12) {
-	  	measure2 = 0;
-	  	last_stave2.x = 10;
-        ctx2.clear();
-        last_stave2 = new Vex.Flow.Stave(0, 0, 60);
-		last_stave2.addClef("bass").setContext(ctx2).draw();
-	  }
-      var stave2 = new Vex.Flow.Stave(last_stave2.width + last_stave2.x, 0, 60);
-      if (measure2 === 0 && first_time2 == 1) {
-      	stave2.addClef("bass").setContext(ctx2).draw();
-      	first_time2 = 1;
-      }
-      else {
-      	stave2.setContext(ctx2).draw();
-      }
-      // Convert note.
-      var chord_notes = new Array();
-	  for (i = 0; i < chord.length; i++) {
-	  		chord_notes.push(chord[i].toLowerCase().substring(0, 1) + "/" + chord[i].substring(1, 2));
-	  }
-	  var new_chord = new Vex.Flow.StaveNote({ keys: chord_notes, duration: "q" });
-	  var staff_chords = [];
-	  // Play note.
-	   staff_chords.push(new_chord);
-	  // Create a voice in 1/4.
-	  var voice2 = new Vex.Flow.Voice({
-	    num_beats: 1,
-	    beat_value: 4,
-	    resolution: Vex.Flow.RESOLUTION
-	  });
-	  // Add notes to voice
-	  voice2.addTickables(staff_chords);
-	  // Format and justify the notes to 500 pixels
-	  var formatter2 = new Vex.Flow.Formatter().joinVoices([voice2]).format([voice2], 500);
-	  // Render voice
-	  voice2.draw(ctx2, stave2);
-	  last_stave2 = stave2;
+	function draw_chord(chord) {
+	 //  // DRAW CHORD
+	 //  measure2 += 1;
+	 //  if (measure2 === 12) {
+	 //  	measure2 = 0;
+	 //  	last_stave2.x = 10;
+  //       ctx2.clear();
+  //       last_stave2 = new Vex.Flow.Stave(0, 0, 60);
+		// last_stave2.addClef("bass").setContext(ctx2).draw();
+	 //  }
+  //     var stave2 = new Vex.Flow.Stave(last_stave2.width + last_stave2.x, 0, 60);
+  //     if (measure2 === 0 && first_time2 == 1) {
+  //     	stave2.addClef("bass").setContext(ctx2).draw();
+  //     	first_time2 = 1;
+  //     }
+  //     else {
+  //     	stave2.setContext(ctx2).draw();
+  //     }
+  //     // Convert note.
+  //     var chord_notes = new Array();
+	 //  for (i = 0; i < chord.length; i++) {
+	 //  		chord_notes.push(chord[i].toLowerCase().substring(0, 1) + "/" + chord[i].substring(1, 2));
+	 //  }
+	 //  var new_chord = new Vex.Flow.StaveNote({ keys: chord_notes, duration: "q" });
+	 //  var staff_chords = [];
+	 //  // Play note.
+	 //   staff_chords.push(new_chord);
+	 //  // Create a voice in 1/4.
+	 //  var voice2 = new Vex.Flow.Voice({
+	 //    num_beats: 1,
+	 //    beat_value: 4,
+	 //    resolution: Vex.Flow.RESOLUTION
+	 //  });
+	 //  // Add notes to voice
+	 //  voice2.addTickables(staff_chords);
+	 //  // Format and justify the notes to 500 pixels
+	 //  var formatter2 = new Vex.Flow.Formatter().joinVoices([voice2]).format([voice2], 500);
+	 //  // Render voice
+	 //  voice2.draw(ctx2, stave2);
+	 //  last_stave2 = stave2;
 	}
 
 
@@ -209,7 +193,6 @@
 
 
 <body bgcolor="#D3D3D3">
-
 
 	<div class="navbar-wrapper"><!-- Wrap the .navbar in .container to center it within the absolutely positioned parent. -->
 	<div class="container">
@@ -264,6 +247,7 @@
 	</div>
 	</div>
 
+	<script src="js/shared.js"></script>
 
 	<script type="text/javascript">
 
@@ -325,19 +309,18 @@
 
 		// Music notation.
 		var canvas = $("#score")[0];
-		var canvas2 = $("#score2")[0];
 		var renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.CANVAS);
-		var renderer2 = new Vex.Flow.Renderer(canvas2, Vex.Flow.Renderer.Backends.CANVAS);
 		var ctx = renderer.getContext();
+		var stave = new Vex.Flow.Stave(0, 0, 250);
+		stave.x = 0;
+        ctx.clear();
+		stave.addClef("treble").setContext(ctx).draw();
+		draw_notes(["C5", "F5", "G5", "A5"]);
+
+		var canvas2 = $("#score2")[0];
+		var renderer2 = new Vex.Flow.Renderer(canvas2, Vex.Flow.Renderer.Backends.CANVAS);
 		var ctx2 = renderer2.getContext();
-		var last_stave = new Vex.Flow.Stave(0, 0, 60);
 		var last_stave2 = new Vex.Flow.Stave(0, 0, 60);
-
-		var draw_canvas = function() {
-			last_stave.addClef("treble").setContext(ctx).draw();
-			last_stave2.addClef("bass").setContext(ctx2).draw();
-		};
-
 
 		var note = "";
 		var chord = "";
@@ -348,8 +331,9 @@
 
 			// Play note.
 
+
 			// Draw the note and its info.
-			draw_state("C5", ["C4", "E4", "G4"]);
+			draw_chord(["C4", "E4", "G4"]);
 
 		    t += 1;
 		}); 
@@ -359,6 +343,49 @@
 				stop();
 			}
 		});
+
+		var Player = function() {
+			loadSounds(this, {
+				A4: 'sounds/A4.mp3',
+				B4: 'sounds/B4.mp3',
+				C4: 'sounds/C4.mp3',
+				D4: 'sounds/D4.mp3',
+				E4: 'sounds/E4.mp3',
+				F4: 'sounds/F4.mp3',
+				G4: 'sounds/G4.mp3',
+				A5: 'sounds/A5.mp3',
+				B5: 'sounds/B5.mp3',
+				C5: 'sounds/C5.mp3',
+				D5: 'sounds/D5.mp3',
+				E5: 'sounds/E5.mp3',
+				F5: 'sounds/F5.mp3',
+				G5: 'sounds/G5.mp3',
+				A6: 'sounds/A6.mp3',
+				B6: 'sounds/B6.mp3',
+				C6: 'sounds/C6.mp3'
+			});
+		};
+
+		Player.prototype.noteMap = {"C5": this.C5};
+
+		Player.prototype.play = function(notes) {
+			// Start playing the rhythm 100 milliseconds from "now"
+			var startTime = context.currentTime + 0.100;
+
+			//var melody = [this.E5, this.D5, this.C5, this.D5, this.E5, this.E5, this.E5, this.C5];
+
+			for (var beat = 0; beat < 8; beat++) {
+				// playSound(this.A4, startTime + beat);
+				// playSound(this.C4, startTime + beat);
+				// playSound(this.E4, startTime + beat);
+
+				playSound(noteMap[notes[beat]], startTime + beat);
+			}
+		};
+
+		var sample = new Player();
+
+		sample.play(["C5", "C5", "C5", "C5", "C5", "C5", "C5", "C5"]);
 
 		</script>
 	</body>

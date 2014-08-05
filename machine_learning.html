@@ -53,95 +53,99 @@
 	 	}
 	}
 
-	var measure = 0;
-	var first_time = 0;
 
-	var measure2 = 0
-	var first_time2 = 0;
 
 	var t = 1;
 
 	function draw_notes(notes) {
-		var staff_notes = [];
-		for (var i = 0; i < notes.length; i++) {
-			var note = notes[i];
-			// Convert note.
-			if (note.length === 2) {
-				var new_note = new Vex.Flow.StaveNote({ keys: [note.toLowerCase().substring(0, 1) + "/" + note.substring(1, 2)], duration: "q" });
+
+		for (var measure = -1; measure < 4; measure++) {
+			var renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.CANVAS);
+			var ctx = renderer.getContext();
+			var stave = new Vex.Flow.Stave(measure*220+55, 0, 220);
+	        if (measure === -1) {
+	        	stave = new Vex.Flow.Stave(0, 0, 55);
+				stave.addClef("treble").setContext(ctx).draw();
+				continue;
+			} else {
+				stave.setContext(ctx).draw();
 			}
-			else {
-				var new_note = new Vex.Flow.StaveNote({ keys: [note.toLowerCase().substring(0, 2) + "/" + note.substring(2, 3)], duration: "q" });
-			}
-			// Play note.
-			if (note.length === 2) {
-				staff_notes.push(new_note);
-			}
-			else {
-				if (note.substring(1, 2) === "#") {
-					staff_notes.push(new_note.addAccidental(0, new Vex.Flow.Accidental("#")));
+			var staff_notes = [];
+			for (var i = 0; i < notes[measure].length; i++) {
+				var note = notes[measure][i];
+				// Convert note.
+				if (note.length === 2) {
+					var new_note = new Vex.Flow.StaveNote({ keys: [note.toLowerCase().substring(0, 1) + "/" + note.substring(1, 2)], duration: "q" });
 				}
 				else {
-					staff_notes.push(new_note.addAccidental(0, new Vex.Flow.Accidental("b")));
+					var new_note = new Vex.Flow.StaveNote({ keys: [note.toLowerCase().substring(0, 2) + "/" + note.substring(2, 3)], duration: "q" });
+				}
+				// Play note.
+				if (note.length === 2) {
+					staff_notes.push(new_note);
+				}
+				else {
+					if (note.substring(1, 2) === "#") {
+						staff_notes.push(new_note.addAccidental(0, new Vex.Flow.Accidental("#")));
+					}
+					else {
+						staff_notes.push(new_note.addAccidental(0, new Vex.Flow.Accidental("b")));
+					}
 				}
 			}
+			// Create a voice in 4/4.
+			var voice = new Vex.Flow.Voice({
+				num_beats: 4,
+				beat_value: 4,
+				resolution: Vex.Flow.RESOLUTION
+			});
+			// Add notes to voice
+			voice.addTickables(staff_notes);
+			var formatter = new Vex.Flow.Formatter().joinVoices([voice]).format([voice], 220);
+			// Render voice
+			voice.draw(ctx, stave);	
 		}
-
-		// Create a voice in 4/4.
-		var voice = new Vex.Flow.Voice({
-			num_beats: 4,
-			beat_value: 4,
-			resolution: Vex.Flow.RESOLUTION
-		});
-		// Add notes to voice
-		voice.addTickables(staff_notes);
-		var formatter = new Vex.Flow.Formatter().joinVoices([voice]).format([voice], 200);
-		// Render voice
-		voice.draw(ctx, stave);	
 	}
 
 	 /*
 	  * Draw notes on the canvas.
 	  */
-	function draw_chord(chord) {
-	 //  // DRAW CHORD
-	 //  measure2 += 1;
-	 //  if (measure2 === 12) {
-	 //  	measure2 = 0;
-	 //  	last_stave2.x = 10;
-  //       ctx2.clear();
-  //       last_stave2 = new Vex.Flow.Stave(0, 0, 60);
-		// last_stave2.addClef("bass").setContext(ctx2).draw();
-	 //  }
-  //     var stave2 = new Vex.Flow.Stave(last_stave2.width + last_stave2.x, 0, 60);
-  //     if (measure2 === 0 && first_time2 == 1) {
-  //     	stave2.addClef("bass").setContext(ctx2).draw();
-  //     	first_time2 = 1;
-  //     }
-  //     else {
-  //     	stave2.setContext(ctx2).draw();
-  //     }
-  //     // Convert note.
-  //     var chord_notes = new Array();
-	 //  for (i = 0; i < chord.length; i++) {
-	 //  		chord_notes.push(chord[i].toLowerCase().substring(0, 1) + "/" + chord[i].substring(1, 2));
-	 //  }
-	 //  var new_chord = new Vex.Flow.StaveNote({ keys: chord_notes, duration: "q" });
-	 //  var staff_chords = [];
-	 //  // Play note.
-	 //   staff_chords.push(new_chord);
-	 //  // Create a voice in 1/4.
-	 //  var voice2 = new Vex.Flow.Voice({
-	 //    num_beats: 1,
-	 //    beat_value: 4,
-	 //    resolution: Vex.Flow.RESOLUTION
-	 //  });
-	 //  // Add notes to voice
-	 //  voice2.addTickables(staff_chords);
-	 //  // Format and justify the notes to 500 pixels
-	 //  var formatter2 = new Vex.Flow.Formatter().joinVoices([voice2]).format([voice2], 500);
-	 //  // Render voice
-	 //  voice2.draw(ctx2, stave2);
-	 //  last_stave2 = stave2;
+	function draw_chords(chords) {
+
+		for (var measure = -1; measure < 4; measure++) {
+			var renderer = new Vex.Flow.Renderer(canvas2, Vex.Flow.Renderer.Backends.CANVAS);
+			var ctx = renderer.getContext();
+			var stave = new Vex.Flow.Stave(measure*220+55, 0, 220);
+		    if (measure === -1) {
+		    	stave = new Vex.Flow.Stave(0, 0, 55);
+				stave.addClef("bass").setContext(ctx).draw();
+				continue;
+			} else {
+				stave.setContext(ctx).draw();
+			}
+			var staff_notes = [];
+			for (var i = 0; i < chords[measure].length; i++) {
+				var chord = chords[measure][i];
+				// Convert chord.
+				var chord_notes = new Array();
+				for (j = 0; j < chord.length; j++) {
+					chord_notes.push(chord[j].toLowerCase().substring(0, 1) + "/" + chord[j].substring(1, 2));
+				}
+				var new_chord = new Vex.Flow.StaveNote({ keys: chord_notes, duration: "q" });
+				staff_notes.push(new_chord);
+			}
+			// Create a voice in 4/4.
+			var voice = new Vex.Flow.Voice({
+				num_beats: 4,
+				beat_value: 4,
+				resolution: Vex.Flow.RESOLUTION
+			});
+			// Add notes to voice
+			voice.addTickables(staff_notes);
+			var formatter = new Vex.Flow.Formatter().joinVoices([voice]).format([voice], 220);
+			// Render voice
+			voice.draw(ctx, stave);	
+		}
 	}
 
 
@@ -149,7 +153,6 @@
 	 * Start our machine learning.
 	 */
  	function start() {
- 		iteration += 1;
  		timer.run();
  		external_timer.run();
  	}
@@ -259,81 +262,70 @@
 		{
 		  var position = $(canvas).position();
 		  var x = e.pageX-position.left;
-		  var y = e.pageY-position.top;
-		  var canv = document.getElementById('score');
-		  var cont = canv.getContext('2d');
-		  cont.globalAlpha = 1.0;
-		  cont.beginPath();
-		  cont.lineWidth = 5;
-		  if (trebleClicks[Math.floor(x/60) - 1] % 2 === 0) {
-		  	cont.strokeStyle = 'green';
-		  	cont.strokeRect(Math.floor(x/60) * 60, 0, 60, 120);
-		  	trebleClicks[Math.floor(x/60) - 1] += 1;
-		  	cont.stroke();
+		  if (x >= 55) {
+		  	var y = e.pageY-position.top;
+			var canv = document.getElementById('score');
+			var cont = canv.getContext('2d');
+			cont.globalAlpha = 1.0;
+			cont.beginPath();
+			cont.lineWidth = 2;
+			if (trebleClicks[Math.floor(x/55)] % 2 === 0) {
+				cont.strokeStyle = 'green';
+				cont.strokeRect(Math.floor(x/55) * 55, 0, 55, 120);
+				trebleClicks[Math.floor(x/55)] += 1;
+				cont.stroke();
+			}
+			else {
+				cont.strokeStyle = 'red';
+				cont.strokeRect(Math.floor(x/55) * 55, 0, 55, 120);
+				trebleClicks[Math.floor(x/55)] += 1;
+				cont.stroke();
+			}
 		  }
-		  else {
-		  	cont.strokeStyle = 'red';
-		  	cont.strokeRect(Math.floor(x/60) * 60, 0, 60, 120);
-		  	trebleClicks[Math.floor(x/60) - 1] += 1;
-		  	cont.stroke();
-		  }
+		  
 		});
 
 		$("#score2").click(function myDown(e) 
 		{
 		  var position = $(canvas).position();
 		  var x = e.pageX-position.left;
-		  var y = e.pageY-position.top;
-		  var canv = document.getElementById('score2');
-		  var cont = canv.getContext('2d');
-		  cont.globalAlpha = 1.0;
-		  cont.beginPath();
-		  cont.lineWidth = 5;
-		  if (bassClicks[Math.floor(x/60)-1] % 2 === 0) {
-		  	cont.strokeStyle = 'green';
-		  	cont.strokeRect(Math.floor(x/60) * 60, 0, 60, 140);
-		  	bassClicks[Math.floor(x/60)-1] += 1;
-		  	cont.stroke();
+		  if (x > 55) {
+		  	var y = e.pageY-position.top;
+			var canv = document.getElementById('score2');
+			var cont = canv.getContext('2d');
+			cont.globalAlpha = 1.0;
+			cont.beginPath();
+			cont.lineWidth = 2;
+			if (bassClicks[Math.floor(x/55)] % 2 === 0) {
+				cont.strokeStyle = 'green';
+				cont.strokeRect(Math.floor(x/55) * 55, 0, 55, 140);
+				bassClicks[Math.floor(x/55)] += 1;
+				cont.stroke();
+			}
+			else {
+				cont.strokeStyle = 'red';
+				cont.strokeRect(Math.floor(x/55) * 55, 0, 55, 140);
+				bassClicks[Math.floor(x/55)] += 1;
+				cont.stroke();
+			}
 		  }
-		  else {
-		  	cont.strokeStyle = 'red';
-		  	cont.strokeRect(Math.floor(x/60) * 60, 0, 60, 140);
-		  	bassClicks[Math.floor(x/60)-1] += 1;
-		  	cont.stroke();
-		  }
+		  
 		});
-
 
 		// The current tempo (in milliseconds).
 		var tempo = 1000;
 
 		// Music notation.
 		var canvas = $("#score")[0];
-		var renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.CANVAS);
-		var ctx = renderer.getContext();
-		var stave = new Vex.Flow.Stave(0, 0, 250);
-		stave.x = 0;
-        ctx.clear();
-		stave.addClef("treble").setContext(ctx).draw();
-		draw_notes(["C5", "F5", "G5", "A5"]);
-
 		var canvas2 = $("#score2")[0];
-		var renderer2 = new Vex.Flow.Renderer(canvas2, Vex.Flow.Renderer.Backends.CANVAS);
-		var ctx2 = renderer2.getContext();
-		var last_stave2 = new Vex.Flow.Stave(0, 0, 60);
+		
+		draw_notes([["C5", "F5", "G5", "A5"], ["C5", "C5", "C5", "C5"], ["D5", "D5", "D5", "D5"], ["D5", "D5", "D5", "D5"]]);
 
-		var note = "";
-		var chord = "";
-
-		var iteration = 0;
+		draw_chords([[["C5", "E4", "G5"], ["C5", "E4", "G5"], ["C5", "E4", "G5"], ["C5", "E4", "G5"]], [["A5", "C5"], ["A5", "C5"], ["A5", "C5"], ["A5", "C5"]], [["C5", "E4", "G5"], ["C5", "E4", "G5"], ["C5", "E4", "G5"], ["C5", "E4", "G5"]], [["C5", "E4", "G5"], ["C5", "E4", "G5"], ["C5", "E4", "G5"], ["C5", "E4", "G5"]]]);
 
 		var timer = new interval(tempo, function() {
 
 			// Play note.
-
-
-			// Draw the note and its info.
-			draw_chord(["C4", "E4", "G4"]);
 
 		    t += 1;
 		}); 
@@ -342,50 +334,6 @@
 			if (t === 13) {
 				stop();
 			}
-		});
-
-
-		var Player = function() {
-			loadSounds(this, {
-				A4: 'sounds/A4.mp3',
-				B4: 'sounds/B4.mp3',
-				C4: 'sounds/C4.mp3',
-				D4: 'sounds/D4.mp3',
-				E4: 'sounds/E4.mp3',
-				F4: 'sounds/F4.mp3',
-				G4: 'sounds/G4.mp3',
-				A5: 'sounds/A5.mp3',
-				B5: 'sounds/B5.mp3',
-				C5: 'sounds/C5.mp3',
-				D5: 'sounds/D5.mp3',
-				E5: 'sounds/E5.mp3',
-				F5: 'sounds/F5.mp3',
-				G5: 'sounds/G5.mp3',
-				A6: 'sounds/A6.mp3',
-				B6: 'sounds/B6.mp3',
-				C6: 'sounds/C6.mp3'
-			});
-		};
-
-		Player.prototype.play = function() {
-			// Start playing the rhythm 100 milliseconds from "now"
-			var startTime = context.currentTime + 0.100;
-
-			var melody = [this.E5, this.D5, this.C5, this.D5, this.E5, this.E5, this.E5, this.C5];
-
-			for (var beat = 0; beat < 8; beat++) {
-				playSound(this.A4, startTime + beat);
-				playSound(this.C4, startTime + beat);
-				playSound(this.E4, startTime + beat);
-
-				playSound(melody[beat], startTime + beat);
-			}
-		};
-
-		var sample = new Player();
-
-		document.querySelector('button').addEventListener('click', function() {
-			sample.play();
 		});
 
 		</script>

@@ -307,8 +307,9 @@
 								"A6": a6, "B6": b6, "C6": c6};
 
 			for (var beat = 0; beat < 16; beat++) {
-				playSound(midi_to_note[twinkle[beat]], startTime + beat);
 				console.log(midi_to_note[twinkle[beat]]);
+				console.log(twinkle[beat]);
+				playSound(midi_to_note[twinkle[beat]], startTime + beat);
 				// var current_chord = generated_chords[Math.floor(beat/4)][beat%4];
 				// for (var i = 0; i < current_chord.length; i++) {
 				// 	playSound(midi_to_note[i], startTime + beat);

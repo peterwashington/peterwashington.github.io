@@ -306,10 +306,12 @@
 								"A5": a5, "B5": b5, "C5": c5, "D5": d5, "E5": e5, "F5": f5, "G5": g5,
 								"A6": a6, "B6": b6, "C6": c6};
 
-			for (var beat = 0; beat < 8; beat++) {
-				playSound(midi_to_note["C4"], startTime + beat);
-				playSound(midi_to_note["E4"], startTime + beat); 
-				playSound(midi_to_note["G4"], startTime + beat);
+			for (var beat = 0; beat < 16; beat++) {
+				playSound(midi_to_note[twinkle[beat]], startTime + beat);
+				var current_chord = generated_chords[Math.floor(beat/4)][beat%4];
+				for (var i = 0; i < current_chord.length; i++) {
+					playSound(midi_to_note[i], startTime + beat);
+				}
 			}
 		};
 
@@ -385,8 +387,9 @@
 		
 		draw_notes(twinkle);
 
-		draw_chords([[cc["C"], cc["C"], cc["C"], cc["C"]], [cc["d"], cc["a"], cc["G"], cc["G"]], 
-					 [cc["F"], cc["F"], cc["C"], cc["C"]], [cc["G"], cc["G"], cc["C"], cc["C"]]]);
+		var generated_chords = [[cc["C"], cc["C"], cc["C"], cc["C"]], [cc["d"], cc["a"], cc["G"], cc["G"]], 
+					 			[cc["F"], cc["F"], cc["C"], cc["C"]], [cc["G"], cc["G"], cc["C"], cc["C"]]];
+		draw_chords(generated_chords);
 
 		var timer = new interval(tempo, function() {
 		    t += 1;

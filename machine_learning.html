@@ -16,8 +16,6 @@
 
  <script type="text/javascript">
 
-
-
  	/*
 	 * Inputs: duration --- the interval at which to call the function
 	 * 		   fn       --- the function to call
@@ -57,6 +55,9 @@
 
 	var t = 1;
 
+	/*
+	 * Draw notes on the canvas.
+	 */
 	function draw_notes(notes) {
 
 		for (var measure = -1; measure < 4; measure++) {
@@ -108,7 +109,7 @@
 	}
 
 	 /*
-	  * Draw notes on the canvas.
+	  * Draw chords on the canvas.
 	  */
 	function draw_chords(chords) {
 
@@ -254,7 +255,10 @@
 
 	<script type="text/javascript">
 
-		// Load sounds for music.
+		//==================================================================
+		// Sound production logic.
+		//==================================================================
+
 		var Player = function() {
 			loadSounds(this, {
 				A4: 'sounds/A4.mp3',
@@ -277,31 +281,26 @@
 			});
 		};
 		var player = new Player();
-		var test_midi = [Player.C4, Player.E4, Player.G4];
+		
+		var c=player.C4;
+		var e=player.E4;
+		var g=player.G4;
+		var midi_to_note = {"C5": player.C5};
+
 
 		var play = function() {
 			// Start playing the rhythm 100 milliseconds from "now"
 			var startTime = context.currentTime + 0.100;
-
-			//var melody = [this.E5, this.D5, this.C5, this.D5, this.E5, this.E5, this.E5, this.C5];
-
-			var c=player.C4;
-			var e=player.E4;
-			var g=player.G4;
-
-			var test_midi = {"C5": c};
-
 			for (var beat = 0; beat < 8; beat++) {
-				playSound(test_midi["C5"], startTime + beat);
-				playSound(e, startTime + beat);
-				playSound(g, startTime + beat);
+				playSound(midi_to_note["C5"], startTime + beat);
+				// playSound(e, startTime + beat);
+				// playSound(g, startTime + beat);
 			}
 		};
 
-		// document.querySelector('button').addEventListener('click', function() {
-		// 	play();
-		// });
-
+		//==================================================================
+		// Canvas highlighting logic.
+		//==================================================================
 
 		var trebleClicks = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, 11:0, 12:0, 13:0, 14:0, 15:0, 16:0};
 		var bassClicks = {0:0, 1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0, 11:0, 12:0, 13:0, 14:0, 15:0, 16:0};
@@ -361,10 +360,11 @@
 		  
 		});
 
-		// The current tempo (in milliseconds).
-		var tempo = 1000;
+		//==================================================================
+		// Machine learning logic.
+		//==================================================================
 
-		// Music notation.
+		var tempo = 1000;
 		var canvas = $("#score")[0];
 		var canvas2 = $("#score2")[0];
 		
@@ -373,9 +373,6 @@
 		draw_chords([[["C5", "E4", "G5"], ["C5", "E4", "G5"], ["C5", "E4", "G5"], ["C5", "E4", "G5"]], [["A5", "C5"], ["A5", "C5"], ["A5", "C5"], ["A5", "C5"]], [["C5", "E4", "G5"], ["C5", "E4", "G5"], ["C5", "E4", "G5"], ["C5", "E4", "G5"]], [["C5", "E4", "G5"], ["C5", "E4", "G5"], ["C5", "E4", "G5"], ["C5", "E4", "G5"]]]);
 
 		var timer = new interval(tempo, function() {
-
-			// Play note.
-
 		    t += 1;
 		}); 
 

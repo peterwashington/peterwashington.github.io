@@ -281,17 +281,31 @@
 			});
 		};
 		var player = new Player();
-		
-
 
 		var play = function() {
 			// Start playing the rhythm 100 milliseconds from "now"
 			var startTime = context.currentTime + 0.100;
 
+			var a4=player.A4;
+			var b4=player.B4;
 			var c4=player.C4;
+			var d4=player.D4;
 			var e4=player.E4;
+			var f4=player.F4;
 			var g4=player.G4;
-			var midi_to_note = {"C4": c4, "E4": e4, "G4": g4};
+			var a5=player.A5;
+			var b5=player.B5;
+			var c5=player.C5;
+			var d5=player.D5;
+			var e5=player.E5;
+			var f5=player.F5;
+			var g5=player.G5;
+			var a6=player.A6;
+			var b6=player.B6;
+			var c6=player.C6;
+			var midi_to_note = {"A4": a4, "B4": b4, "C4": c4, "D4": d4, "E4": e4, "F4": f4, "G4": g4,
+								"A5": a5, "B5": b5, "C5": c5, "D5": d5, "E5": e5, "F5": f5, "G5": g5,
+								"A6": a6, "B6": b6, "C6": c6};
 
 			for (var beat = 0; beat < 8; beat++) {
 				playSound(midi_to_note["C4"], startTime + beat);

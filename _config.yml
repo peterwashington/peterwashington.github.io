@@ -81,13 +81,13 @@ analytics:
 # Site Author
 author:
   name             : "Peter Washington"
-  avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
-  location         : "Location"
-  employer         :
+  avatar           : "profile.jpeg"
+  bio              : "Assistant Professor"
+  location         : "Honolulu, HI"
+  employer         : "University of Hawaiʻi at Mānoa"
   pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
-  email            :
+  googlescholar    : "https://scholar.google.com/citations?user=-xTe7qMAAAAJ&hl=en"
+  email            : "pyw [at] hawaii [dot] edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -96,20 +96,20 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "academicpages"
+  github           : "peterwashington"
   google_plus      :
   keybase          :
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  linkedin         : "https://www.linkedin.com/in/washingtonpeter"
+  orcid            : "http://orcid.org/0000-0003-3276-4411"
   pinterest        :
   soundcloud       :
-  stackoverflow    : # http://stackoverflow.com/users/123456/username
+  stackoverflow    : "https://stackoverflow.com/users/1902528/peter-washington"
   steam            :
   tumblr           :
-  twitter          : "replacethistwitterhandle"
+  twitter          : "peter_washing"
   vine             :
   weibo            :
   xing             :

@@ -8,13 +8,6 @@ date: 2022-08-15
 location: "Honolulu, HI"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
+Topics covered include: human-in-the-loop ML systems, explainable & interpretable ML, AI for healthcare, fairness & bias, privacy, crowdsourcing, HCI evaluations of AI-powered systems, and ethical frameworks applied to AI.
 
-Heading 1
-======
-
-Heading 2
-======
-
-Heading 3
-======
+Students 

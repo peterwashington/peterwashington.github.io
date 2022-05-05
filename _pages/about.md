@@ -8,18 +8,11 @@ redirect_from:
   - /about.html
 ---
 
-About Me
-======
+
 I am an Assistant Professor in the Information & Computer Sciences department at the University of Hawaiʻi at Mānoa. 
 
-Machine Learning for Health and Wellbeing
-------
-The main configuration file for the site is in the base directory in [_config.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_config.yml), which defines the content in the sidebars and other site-wide features. You will need to replace the default variables with ones about yourself and your site's github repository. The configuration file for the top menu is in [_data/navigation.yml](https://github.com/academicpages/academicpages.github.io/blob/master/_data/navigation.yml). For example, if you don't have a portfolio or blog posts, you can remove those items from that navigation.yml file to remove them from the header. 
+My research interests include machine learning for health and wellbeing, crowdsourcing for precision health, and precise digital interventions. 
 
-Crowdsourcing for Precision Health
+Join the lab
 ------
-Abc
-
-Precise Digital Interventions
-------
-Abc
+The Hawaiʻi Digital Health Lab has openings for postdoctoral scholars, graduate students, undergraduate students, and high school students. 

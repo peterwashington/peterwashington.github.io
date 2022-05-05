@@ -8,9 +8,9 @@ redirect_from:
   - /about.html
 ---
 
-Getting started
+About Me
 ======
-Abc.
+I am an Assistant Professor in the Information & Computer Sciences department at the University of Hawaiʻi at Mānoa. 
 
 Machine Learning for Health and Wellbeing
 ------

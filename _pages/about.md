@@ -13,9 +13,13 @@ I am an Assistant Professor in the Information & Computer Sciences department at
 
 My research interests include machine learning for health and wellbeing, crowdsourcing for precision health, and precise digital interventions. 
 
+News
+------
+* Peter Washington joints the Hawaiʻi Digital Health Lab as an Assistant Professor in Information & Computer Sciences.
+
 Join the lab
 ------
-The Hawaiʻi Digital Health Lab has a an opening for a postdoctoral scholar and a graduate student as well as several openings for undergraduate students and high school students. 
+The Hawaiʻi Digital Health Lab has an opening for a postdoctoral scholar and a graduate student as well as several openings for undergraduate students and high school students. 
 
 For the University of Hawaiʻi PhD students, RAships are available. Send me an email with your resume/CV, a description of which of my previous papers interests you and why, and a few sentences about your "dream research project".
 

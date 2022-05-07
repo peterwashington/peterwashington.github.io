@@ -1,6 +1,7 @@
 ---
 layout: archive
 title: "Research Themes"
+excerpt: "Research projects led by Peter Washington, Assistant Professor in Computer Science at the University of Hawaii at Manoa"
 permalink: /portfolio/
 author_profile: true
 ---

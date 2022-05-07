@@ -21,7 +21,7 @@ This is a discussion-based course covering the latest research in human-centered
 
 Recommended prerequisites to get the most out of this course include ICS 235 (Machine Learning Methods), ICS 434 (Data Science Fundamentals), and ICS 435 (Machine Learning Fundamentals).
 
-| Date         | Topic                             | Pre-Class Readings (before class)       | Assignment Due (midnight day before class) |
+| Date         | Topic                             | Pre-Class Readings (before class)       | Assignment Due (midnight before class)     |
 | -            | -                                 | -                                       | -                                          |
 | Mon Aug 22   | Course Overview                   |                                         |                                            |
 | Wed Aug 24   | ML Review                         | Greener Nature Reviews 2022             | Greener reflection                         |

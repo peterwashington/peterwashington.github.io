@@ -1,7 +1,7 @@
 ---
 permalink: /
 title: "Peter Washington"
-excerpt: "About me"
+excerpt: "Academic website for Peter Washington, Assistant Professor in Computer Science at the University of Hawaii at Manoa"
 author_profile: true
 redirect_from: 
   - /about/
@@ -15,7 +15,7 @@ My research interests include machine learning for health and wellbeing, crowdso
 
 News
 ------
-* Peter Washington joints the Hawaiʻi Digital Health Lab as an Assistant Professor in Information & Computer Sciences.
+* Peter Washington joins the Hawaiʻi Digital Health Lab as an Assistant Professor in Information & Computer Sciences.
 
 Join the lab
 ------

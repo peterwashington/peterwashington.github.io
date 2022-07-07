@@ -8,7 +8,9 @@ date: 2022-08-15
 location: "Honolulu, HI"
 ---
 
-This is a discussion-based course covering the latest research in human-centered artificial intellgience (HAI). Topics covered include: interactive ML systems, explainable & interpretable ML, AI for healthcare, fairness & bias, privacy, crowdsourcing, HCI evaluations of AI-powered systems, and ethical frameworks applied to AI. 
+***This is an unofficial and condensed copy of the course syllabus for public viewing. The official syllabus with all formal UHM policies and assignment submission details is available to course students on Laumima.***
+
+This is a discussion-based course covering the latest research in human-centered artificial intelligence (HAI). Topics covered include: interactive ML systems, explainable & interpretable ML, AI for healthcare, fairness & bias, privacy, crowdsourcing, HCI evaluations of AI-powered systems, and ethical frameworks applied to AI. 
 
 **Coursework:** Coursework includes in-class discussions and presentations, research paper reading assignments with weekly structured one-page reflections, developing a structured project proposal with preliminary data, and writing a three-page review of one of the topics discussed.
 

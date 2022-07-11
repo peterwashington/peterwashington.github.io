@@ -8,6 +8,8 @@ redirect_from:
   - /about.html
 ---
 
+<meta name="google-site-verification" content="eavUB5AWBoVGlZJONt2BLMA7fQSRNEX2RT0MKE_7V3A" />
+
 
 I am an Assistant Professor in the Information & Computer Sciences department at the University of Hawaiʻi at Mānoa. 
 

@@ -6,6 +6,7 @@ permalink: /teaching/2022-fall-ICS691D
 venue: "ICS Department, University of Hawaiʻi at Mānoa"
 date: 2022-08-15
 location: "Honolulu, HI"
+author_profile: false
 ---
 
 This is a discussion-based course covering the latest research in human-centered artificial intelligence (HAI). Topics covered include: interactive ML systems, explainable & interpretable ML, AI for healthcare, fairness & bias, privacy, crowdsourcing, HCI evaluations of AI-powered systems, and ethical frameworks applied to AI. 

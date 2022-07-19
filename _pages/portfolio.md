@@ -14,7 +14,7 @@ The Hawaiʻi Digital Health Lab has projects in the following areas. If you are 
 
 **Machine Learning for Healthcare**
 ------
-We develop deep learning methods and datasets to support diagnostics, longitudinal outcome tracking, and adaptive health. Example projects:
+We develop machine learning methods and datasets to support diagnostics, longitudinal outcome tracking, and adaptive health. The machine learning methods we develop can be used to quantify human behavior for applications beyond healthcare as well. Example projects:
 
 * [Improved Digital Therapy for Developmental Pediatrics Using Domain-Specific Artificial Intelligence: Machine Learning Study](https://pediatrics.jmir.org/2022/2/e26760 "Journal of Medical Internet Research")
 * [Training Affective Computer Vision Models by Crowdsourcing Soft-Target Labels](https://link.springer.com/article/10.1007/s12559-021-09936-4 "Cognitive Computation")

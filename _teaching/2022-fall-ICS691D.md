@@ -13,14 +13,15 @@ This is a discussion-based course covering the latest research in human-centered
 
 ***<font color='blue'>This is an unofficial and condensed copy of the course syllabus for public viewing. The official syllabus with all formal UHM policies and assignment submission details is available to course students on Laulima.</font>***
 
-**Coursework:** Coursework includes in-class discussions and presentations, research paper reading assignments with weekly structured one-page reflections, developing a structured project proposal with preliminary data, and writing a three-page review of one of the topics discussed.
+**Coursework:** Coursework includes in-class discussions and presentations, leading a discussion on a chosen topic from the syllabus, research paper reading assignments with weekly structured one-page reflections, developing a structured project proposal with preliminary data, and writing a three-page review of one of the topics discussed.
 
 **Grading:** Grading will consist of a combination of a written work, presentations, and participation. Specifically, the breakdown is as follows:
 * Paper reflection paragraphs: 20% (up to 5 can be dropped; extra credit if not dropped)
 * Topic review paper: 20%
 * Project proposal: 30%
 * In-class presentations: 10%
-* Participation and attendance: 20%
+* Participation and attendance: 10%
+* Leading discussion on chosen topic: 10%
 
 Recommended prerequisites to get the most out of this course include ICS 235 (Machine Learning Methods), ICS 434 (Data Science Fundamentals), and ICS 435 (Machine Learning Fundamentals).
 
@@ -31,7 +32,7 @@ Recommended prerequisites to get the most out of this course include ICS 235 (Ma
 | Mon Aug 29   | Deep Learning Review              | Dong Computer Science Review 2021       | **Literature review topic submitted**      |
 | Wed Aug 31   | Reinforcement Learning            | Arulkumaran IEEE Signal Processing 2017 | **Proposal topic submitted**               |
 | Mon Sep 5    | Labor Day Holiday                 |                                         |                                            |
-| Wed Sep 7    | Interactive ML                    | Berg Nature Methods 2019                | Berg reflection                            |
+| Wed Sep 7    | Interactive ML                    | Haber NeurIPS 2018                      | Berg reflection                            |
 | Mon Sep 12   | Application: Robotics             | Akalin Sensors 2021                     | Akalin reflection                          |
 | Wed Sep 14   | Application: Autonomous Vehicles  | Kohli FICC 2019                         | Kohli reflection                           |
 | Mon Sep 19   | Active Learning                   | Olsson 2009                             | Olsson reflection                          |

@@ -9,9 +9,10 @@ redirect_from:
 ---
 
 
-I am an Assistant Professor in the Information & Computer Sciences department at the University of Hawaiʻi at Mānoa. 
+I am an Assistant Professor in the Information & Computer Sciences department at the University of Hawaiʻi at Mānoa (UHM). Prior to joining UHM, I completed by PhD in Bioengineering at Stanford University ([read my PhD thesis here](https://stacks.stanford.edu/file/druid:rn871vb3166/Stanford_University_Bioengineering_PhD_Thesis__Peter_Washington%20-%20FinalFinal-augmented.pdf "PhD thesis")), MS in Computer Science at Stanford University, and BA in Computer Science at Rice University.
 
-My research interests include machine learning for health and wellbeing, crowdsourcing for precision health, and precise digital interventions. 
+My research interests include developing data science methods to support machine learning for health and wellbeing, crowdsourcing for precision health, and precise digital interventions. I am interested in applying these methods to a variety of healthcare problems. 
+
 
 News
 ------

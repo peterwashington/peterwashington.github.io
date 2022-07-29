@@ -29,10 +29,10 @@ Recommended prerequisites to get the most out of this course include ICS 235 (Ma
 | -            | -                                 | -                                       | -                                          |
 | Mon Aug 22   | Course Overview                   |                                         |                                            |
 | Wed Aug 24   | ML Review                         | Greener Nature Reviews 2022             | Greener reflection                         |
-| Mon Aug 29   | Deep Learning Review              | Dong Computer Science Review 2021       | **Literature review topic submitted**      |
+| Mon Aug 29   | Deep Learning Review              | Dong Computer Science Review 2021       | **Literature review + discussion leading topics submitted**      |
 | Wed Aug 31   | Reinforcement Learning            | Arulkumaran IEEE Signal Processing 2017 | **Proposal topic submitted**               |
 | Mon Sep 5    | Labor Day Holiday                 |                                         |                                            |
-| Wed Sep 7    | Interactive ML                    | Haber NeurIPS 2018                      | Berg reflection                            |
+| Wed Sep 7    | Interactive ML                    | Haber NeurIPS 2018                      | Haber reflection                           |
 | Mon Sep 12   | Application: Robotics             | Akalin Sensors 2021                     | Akalin reflection                          |
 | Wed Sep 14   | Application: Autonomous Vehicles  | Kohli FICC 2019                         | Kohli reflection                           |
 | Mon Sep 19   | Active Learning                   | Olsson 2009                             | Olsson reflection                          |

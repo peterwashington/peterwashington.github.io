@@ -9,18 +9,18 @@ redirect_from:
 ---
 
 
-I am an Assistant Professor in the Information & Computer Sciences department at the University of Hawaiʻi at Mānoa (UHM). Prior to joining UHM, I completed by PhD in Bioengineering at Stanford University (<a href="https://stacks.stanford.edu/file/druid:rn871vb3166/Stanford_University_Bioengineering_PhD_Thesis__Peter_Washington%20-%20FinalFinal-augmented.pdf" target="_blank">read my PhD thesis here</a>), MS in Computer Science at Stanford University, and BA in Computer Science at Rice University.
+I am an Assistant Professor in the Information & Computer Sciences department at the University of Hawaiʻi at Mānoa (UHM). Prior to joining UHM, I completed by PhD in Bioengineering at Stanford University, MS in Computer Science at Stanford University, and BA in Computer Science at Rice University. <a href="https://stacks.stanford.edu/file/druid:rn871vb3166/Stanford_University_Bioengineering_PhD_Thesis__Peter_Washington%20-%20FinalFinal-augmented.pdf" target="_blank">You can read my PhD thesis here.</a>
 
 My research interests include developing data science methods to support machine learning for health and wellbeing, crowdsourcing for precision health, and precise digital interventions. I am interested in applying these methods to a variety of healthcare problems. 
 
 
 News
 ------
-* Peter Washington joins the Hawaiʻi Digital Health Lab as an Assistant Professor in Information & Computer Sciences.
+* August 2022: Peter Washington joins the Hawaiʻi Digital Health Lab as an Assistant Professor in Information & Computer Sciences.
 
 Join the lab
 ------
-The Hawaiʻi Digital Health Lab has an opening for a postdoctoral scholar and a graduate student as well as several openings for undergraduate students and high school students. 
+The Hawaiʻi Digital Health Lab has an opening for 2 graduate students as well as several openings for undergraduate students and high school students. 
 
 For the University of Hawaiʻi PhD students, RAships are available. Send me an email with your resume/CV, a description of which of my previous papers interests you and why, and a few sentences about your "dream research project".
 

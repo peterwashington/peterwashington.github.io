@@ -27,9 +27,7 @@ Recommended prerequisites to get the most out of this course include ICS 235 (Ma
 
 | Date         | Topic                             | Pre-Class Readings (before class)       | Assignment Due (midnight before class)     |
 | -            | -                                 | -                                       | -                                          |
-
-| Mon Aug 22   | <a href="https://peterwashington.github.io/files/classes/ICS691D/Lecture_1_Course_Overview.pdf"> Course Overview /a>  | | |
-
+| Mon Aug 22   | <a href="https://peterwashington.github.io/files/classes/ICS691D/Lecture_1_Course_Overview.pdf"> Course Overview </a> | | |
 | Wed Aug 24   | ML Review                         | Greener Nature Reviews 2022             | Greener reflection                         |
 | Mon Aug 29   | Deep Learning Review              | Dong Computer Science Review 2021       | **Literature review + discussion leading topics**      |
 | Wed Aug 31   | Reinforcement Learning            | Arulkumaran IEEE Signal Processing 2017 | **Proposal topic**                         |

@@ -29,12 +29,12 @@ Recommended prerequisites to get the most out of this course include ICS 235 (Ma
 | -            | -                                 | -                                       | -                                          |
 | Mon Aug 22   | Course Overview                   |                                         |                                            |
 | Wed Aug 24   | ML Review                         | Greener Nature Reviews 2022             | Greener reflection                         |
-| Mon Aug 29   | Deep Learning Review              | Dong Computer Science Review 2021       | **Literature review + discussion leading topics submitted**      |
-| Wed Aug 31   | Reinforcement Learning            | Arulkumaran IEEE Signal Processing 2017 | **Proposal topic submitted**               |
+| Mon Aug 29   | Deep Learning Review              | Dong Computer Science Review 2021       | **Literature review + discussion leading topics**      |
+| Wed Aug 31   | Reinforcement Learning            | Arulkumaran IEEE Signal Processing 2017 | **Proposal topic**                         |
 | Mon Sep 5    | Labor Day Holiday                 |                                         |                                            |
 | Wed Sep 7    | Interactive ML                    | Haber NeurIPS 2018                      | Haber reflection                           |
-| Mon Sep 12   | Application: Robotics             | Akalin Sensors 2021                     | Akalin reflection                          |
-| Wed Sep 14   | Application: Autonomous Vehicles  | Kohli FICC 2019                         | Kohli reflection                           |
+| Mon Sep 12   | Robotics                          | Akalin Sensors 2021                     | Akalin reflection                          |
+| Wed Sep 14   | Autonomous Vehicles               | Kohli FICC 2019                         | Kohli reflection                           |
 | Mon Sep 19   | Active Learning                   | Olsson 2009                             | Olsson reflection                          |
 | Wed Sep 21   | Crowdsourcing                     | Vaughan JMLR 2017                       | Vaughan reflection                         |
 | Mon Sep 26   | Human-Computer Interaction        | Dove CHI 2017                           | Dove reflection                            |
@@ -52,10 +52,10 @@ Recommended prerequisites to get the most out of this course include ICS 235 (Ma
 | Mon Nov 7    | Ethics                            | Char NEJM 2018                          | Char reflection                            |
 | Wed Nov 9    | Generative Models                 | Lyu ICMEW 2020                          | Lyu reflection                             |
 | Mon Nov 14   | Edge Computing                    | Chen IEEE Network 2019                  | Chen reflection                            |
-| Wed Nov 16   | Application: Biology              | Zou Nature Genetics 2019                | Zou reflection                             |
-| Mon Nov 21   | Application: Medicine and Health  | Hannun Nature Medicine 2019             | Hannun reflection                          |
-| Wed Nov 23   | Application: Affective Computing  | Washington Cognitive Computation 2021   | Washington reflection                      |
-| Mon Nov 28   | Application: Behavioral Health    | Washington Scientific Reports 2021      | Washington reflection                      |
+| Wed Nov 16   | Biology                           | Zou Nature Genetics 2019                | Zou reflection                             |
+| Mon Nov 21   | Medicine and Health               | Hannun Nature Medicine 2019             | Hannun reflection                          |
+| Wed Nov 23   | Digital Phenotyping               | Omberg Nature Biotechnology 2022        | Omberg reflection                          |
+| Mon Nov 28   | Social Network Analysis           | Smith PNAS 2021                         | Smith reflection                           |
 | Wed Nov 30   | Course Summary                    |                                         |                                            |
 | Mon Dec 5    | Final Proposal Presentations      |                                         | **Final project proposal (5 pages)**       |
 | Wed Dec 7    | Final Proposal Presentations      |                                         |                                            |

@@ -51,7 +51,7 @@ Recommended prerequisites to get the most out of this course include ICS 235 (Ma
 | Wed Nov 2    | Proposal Checkin Presentations    |                                         |                                            |
 | Mon Nov 7    | Ethics                            | Char NEJM 2018                          | Char reflection                            |
 | Wed Nov 9    | Generative Models                 | Lyu ICMEW 2020                          | Lyu reflection                             |
-| Mon Nov 14   | Edge Computing                    | Chen IEEE Network 2019                  | Chen reflection                            |
+| Mon Nov 14   | Natural Language Processing       | Mishev IEEE Access 2020                 | Mishev reflection                          |
 | Wed Nov 16   | Biology                           | Zou Nature Genetics 2019                | Zou reflection                             |
 | Mon Nov 21   | Medicine and Health               | Hannun Nature Medicine 2019             | Hannun reflection                          |
 | Wed Nov 23   | Digital Phenotyping               | Omberg Nature Biotechnology 2022        | Omberg reflection                          |

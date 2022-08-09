@@ -43,7 +43,7 @@ Recommended prerequisites to get the most out of this course include ICS 235 (Ma
 | Wed Oct 5    | Literature Review Presentations   |                                         |                                            |
 | Mon Oct 10   | Explainable ML                    | Alqaraawi IUI 2020                      | Alqaraawi reflection                       |
 | Wed Oct 12   | Communicating ML results          | Varoquaux Neuroimage 2018               | Varoquaux reflection                       |
-| Mon Oct 17   | Differential Privacy              | Chen Biocomputing 2020                  | Chen reflection                            |
+| Mon Oct 17   | Differential Privacy (remote on Zoom)             | Chen Biocomputing 2020                  | Chen reflection                            |
 | Wed Oct 19   | Federated Learning                | Rieke NPJ Digital Medicine 2018         | Rieke reflection                           |
 | Mon Oct 24   | Bias                              | Mehrabi ACM Computing Surveys 2021      | Mehrabi relfection                         |
 | Wed Oct 26   | Fairness                          | Holstein CHI 2019                       | Holstein reflection                        |

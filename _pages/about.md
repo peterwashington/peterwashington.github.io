@@ -16,14 +16,14 @@ My research interests include developing data science methods to support machine
 
 News
 ------
-* August 2022: Peter Washington joins the Hawaiʻi Digital Health Lab as an Assistant Professor in Information & Computer Sciences.
+* August 2022: Peter Washington starts the Hawaiʻi Digital Health Lab as an Assistant Professor in Information & Computer Sciences.
 
 Join the lab
 ------
-The Hawaiʻi Digital Health Lab has an opening for 2 graduate students as well as several openings for undergraduate students and high school students. 
+The Hawaiʻi Digital Health Lab has an opening for 2 PhD students as well as several openings for masters, undergraduate, and high school students. 
 
 For the University of Hawaiʻi PhD students, RAships are available. Send me an email with your resume/CV, a description of which of my previous papers interests you and why, and a few sentences about your "dream research project".
 
 For University of Hawaiʻi masters students, course credit is available in the form of ICS 499, ICS 699, or ICS 700. Note that masters students completing Plan A must complete 6 units of ICS 700 and masters students completing Plan B must complete 6 units of ICS 699. Send me an email with your resume/CV and which of the following skillsets you would like to contribute to the lab: web development, mobile development (iOS or Android), data analysis, and/or machine learning (TensorFlow/Keras or PyTorch).
 
-For University of Hawaiʻi undergraduate students, course credit is available in the form of ICS 499. In addition, I am actively accepting mentees for the <a href="https://manoa.hawaii.edu/undergrad/urop/student-funding/project/about/" target="_blank">Undergraduate Research Opportunities Program (UROP)</a>. If interested in receiving ICS 499 course credits and/or the UROP program, send me an email with your resume/CV and which of the following skillsets you would like to contribute to the lab: web development, mobile development (iOS or Android), data analysis, and/or machine learning (TensorFlow/Keras or PyTorch).
+For University of Hawaiʻi undergraduate students, course credit is available in the form of ICS 499. In addition, I am actively accepting mentees for the <a href="https://manoa.hawaii.edu/undergrad/urop/student-funding/project/about/" target="_blank">Undergraduate Research Opportunities Program (UROP)</a>. If interested in receiving ICS 499 course credits and/or participating in the UROP program, send me an email with your resume/CV and which of the following skillsets you would like to contribute to the lab: web development, mobile development (iOS or Android), data analysis, data mining, and/or machine learning (TensorFlow/Keras or PyTorch).

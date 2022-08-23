@@ -9,7 +9,7 @@
 locale                   : "en-US"
 title                    : "Peter Washington"
 title_separator          : "-"
-name                     : &name "Peter Washington"
+name                     : &name "Professor at University of Hawaii"
 description              : &description "Academic website for Peter Washington, Assistant Professor in Computer Science at the University of Hawaii at Manoa"
 url                      : https://peterwashington.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"

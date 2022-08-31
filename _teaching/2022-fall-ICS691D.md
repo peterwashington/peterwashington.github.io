@@ -30,7 +30,7 @@ Recommended prerequisites to get the most out of this course include ICS 235 (Ma
 | Mon Aug 22   | <a href="https://peterwashington.github.io/files/classes/ICS691D/Lecture_1_Course_Overview.pdf" target="_blank">Course Overview</a> | | |
 | Wed Aug 24   | <a href="https://peterwashington.github.io/files/classes/ICS691D/Lecture_2_ML_Review.pdf" target="_blank">ML Review</a>  | Greener Nature Reviews 2022  | Greener reflection  |
 | Mon Aug 29   | <a href="https://peterwashington.github.io/files/classes/ICS691D/Lecture_3_DL_Review.pdf" target="_blank">Deep Learning Review</a>             | Dong Computer Science Review 2021       | **Literature review + discussion leading topics**      |
-| Wed Aug 31   | Reinforcement Learning            | Arulkumaran IEEE Signal Processing 2017 | **Proposal topic**                         |
+| Wed Aug 31   | <a href="https://peterwashington.github.io/files/classes/ICS691D/Lecture_4_Reinforcement_Learning.pdf" target="_blank">Reinforcement Learning</a>            | Arulkumaran IEEE Signal Processing 2017 | **Proposal topic**                         |
 | Mon Sep 5    | Labor Day Holiday                 |                                         |                                            |
 | Wed Sep 7    | Interactive ML                    | Haber NeurIPS 2018                      | Haber reflection                           |
 | Mon Sep 12   | Robotics                          | Akalin Sensors 2021                     | Akalin reflection                          |

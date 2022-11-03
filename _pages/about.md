@@ -13,6 +13,7 @@ I am an Assistant Professor in the Information & Computer Sciences department at
 
 My research interests include developing data science methods to support machine learning for health and wellbeing, crowdsourcing for precision health, and precise digital interventions. I am interested in applying these methods to a variety of healthcare problems. 
 
+<center>
 <img src="../images/lab-overview.png" /><br>
 <b>Figure 1.</b> Overview of lab research.
 
@@ -22,8 +23,9 @@ My research interests include developing data science methods to support machine
 <img src="../images/lanikai-beach.jpeg" /><br>
 <b>Figure 3.</b> Dr. Washington’s favorite local beach (Lanikai).
 
-<img src="../images/stella.png" width="100" /><br>
+<img src="../images/stella.png" width="250" /><br>
 <b>Figure 4.</b> Lab mascot: Stella Roo the Cockapoo.
+</center>
 
 
 News

@@ -15,6 +15,20 @@ My research interests include developing data science methods to support machine
 
 <img src="../images/lab-overview.png" />
 
+<b>Figure 1.</b> Overview of lab research.
+
+<img src="../images/POST.jpeg" />
+
+<b>Figure 2.</b> We are located in the Pacific Ocean Science and Technology (POST) building at the University of Hawaii at Manoa campus.
+
+<img src="../images/lanikai-beach.jpeg" />
+
+<b>Figure 3.</b> Dr. Washington’s favorite local beach (Lanikai).
+
+<img src="../images/stella.png" />
+
+<b>Figure 4.</b> Lab mascot: Stella Roo the Cockapoo.
+
 
 News
 ------

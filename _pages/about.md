@@ -9,9 +9,9 @@ redirect_from:
 ---
 
 
-I am an Assistant Professor in the Information & Computer Sciences department at the University of Hawaiʻi at Mānoa (UHM). Prior to joining UHM, I completed by PhD in Bioengineering at Stanford University, MS in Computer Science at Stanford University, and BA in Computer Science at Rice University. <a href="https://stacks.stanford.edu/file/druid:rn871vb3166/Stanford_University_Bioengineering_PhD_Thesis__Peter_Washington%20-%20FinalFinal-augmented.pdf" target="_blank">You can read my PhD thesis here.</a>
+I am an Assistant Professor in the Information & Computer Sciences department at the University of Hawaiʻi at Mānoa. Prior to this role, I completed by PhD in Bioengineering at Stanford University, MS in Computer Science at Stanford University, and BA in Computer Science at Rice University. <a href="https://stacks.stanford.edu/file/druid:rn871vb3166/Stanford_University_Bioengineering_PhD_Thesis__Peter_Washington%20-%20FinalFinal-augmented.pdf" target="_blank">You can read my PhD thesis here.</a>
 
-My research interests include developing data science methods to support machine learning for health and wellbeing, crowdsourcing for precision health, and precise digital interventions. I am interested in applying these methods to a variety of healthcare problems. 
+My research interests include developing data science methods to support machine learning for health and wellbeing, crowdsourcing for precision health, and precise digital diagnostics and interventions (Figure 1). I am interested in applying these methods to a variety of healthcare problems. The Hawaii Digital Health Lab is located at the University of Hawaii at Manoa (Figure 2). When not working, you can find me at one of the many beautiful beaches on Oahu, including but not limited to Lanikai (Figure 3), as well as spending time with my wife Bianca and dog Stella Roo (Figure 4).
 
 <center>
 <img src="../images/lab-overview.png" /><br>

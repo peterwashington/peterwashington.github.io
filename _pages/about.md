@@ -14,19 +14,15 @@ I am an Assistant Professor in the Information & Computer Sciences department at
 My research interests include developing data science methods to support machine learning for health and wellbeing, crowdsourcing for precision health, and precise digital interventions. I am interested in applying these methods to a variety of healthcare problems. 
 
 <img src="../images/lab-overview.png" />
-
 <b>Figure 1.</b> Overview of lab research.
 
 <img src="../images/POST.jpeg" />
-
 <b>Figure 2.</b> We are located in the Pacific Ocean Science and Technology (POST) building at the University of Hawaii at Manoa campus.
 
 <img src="../images/lanikai-beach.jpeg" />
-
 <b>Figure 3.</b> Dr. Washington’s favorite local beach (Lanikai).
 
-<img src="../images/stella.png" />
-
+<img src="../images/stella.png" width="100" />
 <b>Figure 4.</b> Lab mascot: Stella Roo the Cockapoo.
 
 

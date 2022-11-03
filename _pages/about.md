@@ -13,6 +13,8 @@ I am an Assistant Professor in the Information & Computer Sciences department at
 
 My research interests include developing data science methods to support machine learning for health and wellbeing, crowdsourcing for precision health, and precise digital interventions. I am interested in applying these methods to a variety of healthcare problems. 
 
+<img src="../images/lab-overview.png" />
+
 
 News
 ------

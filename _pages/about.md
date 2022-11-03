@@ -30,14 +30,18 @@ My research interests include developing data science methods to support machine
 
 News
 ------
-* August 2022: Peter Washington starts the Hawaiʻi Digital Health Lab as an Assistant Professor in Information & Computer Sciences.
+* August 2022: Peter Washington starts the Hawaii Digital Health Lab as an Assistant Professor in Information & Computer Sciences.
 
 Join the lab
 ------
-The Hawaiʻi Digital Health Lab has an opening for 2 PhD students as well as several openings for masters, undergraduate, and high school students. 
+The Hawaii Digital Health Lab has an opening for some PhD students as well as several openings for masters, undergraduate, and high school students. 
 
-For the University of Hawaiʻi PhD students, RAships are available. Send me an email with your resume/CV, a description of which of my previous papers interests you and why, and a few sentences about your "dream research project".
+<b>For current University of Hawaii PhD students</b>: RAships are available. I usually like to work with students for about 1 year prior to making an RAship commitment. Usually, this is in the form of mentorship on your masters thesis for course credit. Working together for only 1 semester before making a commitment may be possible in exceptional circumstances. Send me an email with your resume/CV, a description of which of my previous papers interests you and why, and a few sentences about your "dream research project".
 
-For University of Hawaiʻi masters students, course credit is available in the form of ICS 499, ICS 699, or ICS 700. Note that masters students completing Plan A must complete 6 units of ICS 700 and masters students completing Plan B must complete 6 units of ICS 699. Send me an email with your resume/CV and which of the following skillsets you would like to contribute to the lab: web development, mobile development (iOS or Android), data analysis, and/or machine learning (TensorFlow/Keras or PyTorch).
+<b>For prospective PhD students</b>: I usually like to work with students for about 1 year prior to making a PhD commitment. University of Hawaii has a thesis-based Masters program that leads directly into the PhD program, so I recommend you apply there. If you get past the initial review, I will setup a Zoom call. If you're admitted, we can work together during the Masters, and if all goes well, then continuing onto the PhD will be easy. 
 
-For University of Hawaiʻi undergraduate students, course credit is available in the form of ICS 499. In addition, I am actively accepting mentees for the <a href="https://manoa.hawaii.edu/undergrad/urop/student-funding/project/about/" target="_blank">Undergraduate Research Opportunities Program (UROP)</a>. If interested in receiving ICS 499 course credits and/or participating in the UROP program, send me an email with your resume/CV and which of the following skillsets you would like to contribute to the lab: web development, mobile development (iOS or Android), data analysis, data mining, and/or machine learning (TensorFlow/Keras or PyTorch).
+<b>For University of Hawaii masters students</b>: Course credit is available in the form of ICS 499, ICS 699, or ICS 700. Note that masters students completing Plan A must complete 6 units of ICS 700 and masters students completing Plan B must complete 6 units of ICS 699. Send me an email with your resume/CV and which of the following skillsets you would like to contribute to the lab: web development, mobile development (iOS or Android), data analysis, and/or machine learning (TensorFlow/Keras or PyTorch).
+
+<b>For University of Hawaii undergraduate students</b>: Course credit is available in the form of ICS 499. In addition, I am actively accepting mentees for the <a href="https://manoa.hawaii.edu/undergrad/urop/student-funding/project/about/" target="_blank">Undergraduate Research Opportunities Program (UROP)</a>. If interested in receiving ICS 499 course credits and/or participating in the UROP program, send me an email with your resume/CV and which of the following skillsets you would like to contribute to the lab: web development, mobile development (iOS or Android), data analysis, data mining, and/or machine learning (TensorFlow/Keras or PyTorch).
+
+

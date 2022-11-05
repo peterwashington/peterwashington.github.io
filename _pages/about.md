@@ -30,7 +30,7 @@ My research interests include developing data science methods to support machine
 
 News
 ------
-* November 2022: <a hred="https://slades.dev/">Christopher Slade</a> joins the Hawaii Digital Health Lab as a PhD student.
+* November 2022: <a hred="https://slades.dev/" target="_blank">Christopher Slade</a> joins the Hawaii Digital Health Lab as a PhD student.
 * August 2022: Peter Washington starts the Hawaii Digital Health Lab as an Assistant Professor in Information & Computer Sciences.
 
 Join the lab

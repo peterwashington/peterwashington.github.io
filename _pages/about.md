@@ -15,7 +15,7 @@ My research interests include developing data science methods to support machine
 
 <center>
 <img src="../images/lab-overview.png" /><br>
-<b>Figure 1.</b> Overview of lab research.
+<b>Figure 1.</b> Overview of the Hawaii Digital Health lab research.
 <br><br>
 <img src="../images/POST.jpeg" /><br>
 <b>Figure 2.</b> We are located in the Pacific Ocean Science and Technology (POST) building at the University of Hawaii at Manoa campus.
@@ -30,15 +30,16 @@ My research interests include developing data science methods to support machine
 
 News
 ------
+* November 2022: <a hred="https://slades.dev/">Christopher Slade</a> joins the Hawaii Digital Health Lab as a PhD student.
 * August 2022: Peter Washington starts the Hawaii Digital Health Lab as an Assistant Professor in Information & Computer Sciences.
 
 Join the lab
 ------
 The Hawaii Digital Health Lab has an opening for some PhD students as well as several openings for masters, undergraduate, and high school students. 
 
-<b>For current University of Hawaii PhD students</b>: RAships are available. I usually like to work with students for about 1 year prior to making an RAship commitment. Usually, this is in the form of mentorship on your masters thesis for course credit. Working together for only 1 semester before making a commitment may be possible in exceptional circumstances. Send me an email with your resume/CV, a description of which of my previous papers interests you and why, and a few sentences about your "dream research project".
+<b>For current University of Hawaii PhD students</b>: RAships are available. I currently like to work with students for about 1 year prior to making an RAship commitment. Usually, this is in the form of mentorship on your masters thesis for course credit (ICS 699 and/or ICS 700). Working together for only 1 semester before making a commitment may be possible in exceptional circumstances. Send me an email with your resume/CV, a description of which of my previous papers interests you and why, and a few sentences about your "dream research project".
 
-<b>For prospective PhD students</b>: I usually like to work with students for about 1 year prior to making a PhD commitment. University of Hawaii has a thesis-based Masters program that leads directly into the PhD program, so I recommend you apply there. If you get past the initial review, I will setup a Zoom call. If you're admitted, we can work together during the Masters, and if all goes well, then continuing onto the PhD will be easy. 
+<b>For prospective PhD students</b>: I usually like to work with students for about 1 year prior to making a PhD commitment. University of Hawaii has a thesis-based Masters program that leads directly into the PhD program, so I recommend you apply there. If you get past the initial review, I will setup a Zoom call. If you're admitted, we can work together during the Masters, and if all goes well, then continuing onto the PhD will be easy. An alternative option, which some students have tried, is to work with me as a mentor on your undergraduate or masters thesis at another university, which can lead to immediate RAships upon arrival to the University of Hawaii.
 
 <b>For University of Hawaii masters students</b>: Course credit is available in the form of ICS 499, ICS 699, or ICS 700. Note that masters students completing Plan A must complete 6 units of ICS 700 and masters students completing Plan B must complete 6 units of ICS 699. Send me an email with your resume/CV and which of the following skillsets you would like to contribute to the lab: web development, mobile development (iOS or Android), data analysis, and/or machine learning (TensorFlow/Keras or PyTorch).
 

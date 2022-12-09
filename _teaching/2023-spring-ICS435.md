@@ -11,4 +11,6 @@ author_profile: false
 
 This is a mathematics and programming heavy introduction to machine learning. Topics include machine learning programming in Python, classical machine learning methods, and an introduction to deep learning. Coursework consists of 5 homeworks (combination of written and Python coding problems), an in-class midterm, a final exam, and a final project.
 
-Course webpage: coming soon!
+<a href='https://peterwashington.github.io/ics435and635spring2023/index.html'>Click here to go to the course webpage.</a>
+
+<meta http-equiv="Refresh" content="0; url='https://peterwashington.github.io/ics435and635spring2023/index.html'" />

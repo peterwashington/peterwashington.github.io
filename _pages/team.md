@@ -62,7 +62,7 @@ author_profile: true
 </style>
 
 
-<h2>PhD students</h2>
+<h2>PhD researchers</h2>
 
 
 <div class="row">
@@ -88,20 +88,9 @@ author_profile: true
     </div>
   </div>
 
-  <div class="column">
-    <div class="card">
-      <img src="../images/kaiying.jpeg" alt="Kai-Ying" style="width:100%; height:100%">
-      <div class="container">
-        <h2>Kai-Ying Lin</h2>
-        <p class="title">Linguistics
-        </p>
-        <p>NLP detection of age-related cognitive disease (primary advisor Kamil Ud Deen)</p>
-      </div>
-    </div>
-  </div>
 </div>
 
-<h2>MS students</h2>
+<h2>MS researchers</h2>
 
 <div class="row">
   <div class="column">
@@ -110,7 +99,7 @@ author_profile: true
       <div class="container">
         <h2>Aditi Jaiswal</h2>
         <p class="title">Information and Computer Sciences</p>
-        <p>Social media mining for psychiatry</p>
+        <p>Social media mining for psychiatry and behavioral sciences</p>
       </div>
     </div>
   </div>
@@ -140,100 +129,40 @@ author_profile: true
 
 
 
-<h2>Undergraduate students</h2>
+<h2>Undergraduate researchers</h2>
 
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="img1.jpg" alt="Jane" style="width:100%">
+      <img src="../images/jing.png" alt="Jing" style="width:100%">
       <div class="container">
-        <h2>Jane Doe</h2>
-        <p class="title">CEO &amp; Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <h2>Jing Zheng</h2>
+        <p class="title">Information and Computer Sciences</p>
+        <p>Gamification of data curation for affective computing</p>
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="img2.jpg" alt="Mike" style="width:100%">
+      <img src="../images/wilson.jpeg" alt="Wilson" style="width:100%">
       <div class="container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <h2>Wilson Tran</h2>
+        <p class="title">Information and Computer Sciences</p>
+        <p>Machine learning with wearable biosignals for stress detection</p>
       </div>
     </div>
   </div>
 
-  <div class="column">
-    <div class="card">
-      <img src="img3.jpg" alt="John" style="width:100%">
-      <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
 </div>
 
 
-<h2>High school students</h2>
+<h2>Collaborating researchers</h2>
 
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="img1.jpg" alt="Jane" style="width:100%">
-      <div class="container">
-        <h2>Jane Doe</h2>
-        <p class="title">CEO &amp; Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <img src="img2.jpg" alt="Mike" style="width:100%">
-      <div class="container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <img src="img3.jpg" alt="John" style="width:100%">
-      <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<h2>Collaborating students</h2>
-
-<div class="row">
-  <div class="column">
-    <div class="card">
-      <img src="img1.jpg" alt="Jane" style="width:100%">
+      <img src="../images/arianna.png" alt="Arianna" style="width:100%">
       <div class="container">
         <h2>Arianna Bunnell</h2>
         <p class="title">Information and Computer Sciences</p>
@@ -244,29 +173,17 @@ author_profile: true
 
   <div class="column">
     <div class="card">
-      <img src="img2.jpg" alt="Mike" style="width:100%">
+      <img src="../images/kaiying.jpeg" alt="Kai-Ying" style="width:100%; height:100%">
       <div class="container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <h2>Kai-Ying Lin</h2>
+        <p class="title">Linguistics
+        </p>
+        <p>NLP detection of age-related cognitive disease (primary advisor Kamil Ud Deen)</p>
       </div>
     </div>
   </div>
 
-  <div class="column">
-    <div class="card">
-      <img src="img3.jpg" alt="John" style="width:100%">
-      <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
+
 </div>
 
 

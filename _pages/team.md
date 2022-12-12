@@ -68,7 +68,7 @@ author_profile: true
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="../images/arby.jpeg" alt="Arby" style="width:100%">
+      <img src="../images/arby.jpeg" alt="Arby" style="width:100%; height:100%">
       <div class="container">
         <h2>Arby Barone</h2>
         <p class="title">Communication and Information Sciences</p>
@@ -79,7 +79,7 @@ author_profile: true
 
   <div class="column">
     <div class="card">
-      <img src="../images/chris.jpeg" alt="Chris" style="width:100%">
+      <img src="../images/chris.jpeg" alt="Chris" style="width:100%; height:100%">
       <div class="container">
         <h2>Chris Slade</h2>
         <p class="title">Information and Computer Sciences</p>
@@ -90,12 +90,12 @@ author_profile: true
 
   <div class="column">
     <div class="card">
-      <img src="../images/kaiying.jpeg" alt="Kai-Ying" style="width:100%">
+      <img src="../images/kaiying.jpeg" alt="Kai-Ying" style="width:100%; height:100%">
       <div class="container">
         <h2>Kai-Ying Lin</h2>
         <p class="title">Linguistics
         </p>
-        <p>(Collaborator) NLP detection of age-related cognitive disease</p>
+        <p>NLP detection of age-related cognitive disease (primary advisor Kamil Ud Deen)</p>
       </div>
     </div>
   </div>
@@ -106,29 +106,29 @@ author_profile: true
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="../images/aditi.png" alt="Aditi" style="width:100%">
+      <img src="../images/aditi.png" alt="Aditi" style="width:100%; height:100%">
       <div class="container">
         <h2>Aditi Jaiswal</h2>
         <p class="title">Information and Computer Sciences</p>
-        <p>Social media mining for autism detection</p>
+        <p>Social media mining for psychiatry</p>
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="../images/yang.jpeg" alt="Yang" style="width:100%">
+      <img src="../images/yang.jpeg" alt="Yang" style="width:100%; height:100%">
       <div class="container">
         <h2>Yang Qian</h2>
         <p class="title">Information and Computer Sciences</p>
-        <p>Computer vision and EEG analysis for emotion recognition</p>
+        <p>Computer vision and EEG analysis for affective computing</p>
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="../images/tanvir.jpeg" alt="Tanvir" style="width:100%">
+      <img src="../images/tanvir.jpeg" alt="Tanvir" style="width:100%; height:100%">
       <div class="container">
         <h2>Tanvir Islam</h2>
         <p class="title">Information and Computer Sciences</p>
@@ -235,11 +235,9 @@ author_profile: true
     <div class="card">
       <img src="img1.jpg" alt="Jane" style="width:100%">
       <div class="container">
-        <h2>Jane Doe</h2>
-        <p class="title">CEO &amp; Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <h2>Arianna Bunnell</h2>
+        <p class="title">Information and Computer Sciences</p>
+        <p>Deep learning for breast cancer detection (primary advisors Peter Sadowski and John Shepherd)</p>
       </div>
     </div>
   </div>

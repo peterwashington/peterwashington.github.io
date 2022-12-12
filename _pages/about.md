@@ -30,7 +30,7 @@ My research interests include developing data science methods to support machine
 
 News
 ------
-* November 2022: <a href="https://slades.dev/" target="_blank">Christopher Slade</a> joins the Hawaii Digital Health Lab as a PhD student.
+* November 2022: The Hawaii Digital Health Lab holds is inaugural lab meeting, with several new students joining the lab. PhD students Arby Barone and Chris Slade join the lab. MS students Aditi Jaiswal, Yang Qian, and Tanvir Islam join the lab. Undergraduate students Wilson Tran and Jing Zheng join the lab. Kai-Ying and Arianna Bunnell join as regular lab collaborators primarily advised by other faculty members at UH Manoa. Ali Kargarandehkordi joins as a collaborating MS student from Finland. Welcome and looking forward to working with everyone!
 * August 2022: Peter Washington starts the Hawaii Digital Health Lab as an Assistant Professor in Information & Computer Sciences.
 
 Join the lab

@@ -157,7 +157,7 @@ author_profile: true
 </div>
 
 
-<h2>Collaborating researchers</h2>
+<h2>Collaborating student researchers</h2>
 
 <div class="row">
   <div class="column">

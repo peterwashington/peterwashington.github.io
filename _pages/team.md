@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 
-<style type="css">
+<style>
 /* Three columns side by side */
 .column {
   float: left;
@@ -68,37 +68,33 @@ author_profile: true
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="img1.jpg" alt="Jane" style="width:100%">
+      <img src="img1.jpg" alt="Arby" style="width:100%">
       <div class="container">
         <h2>Arby Barone</h2>
         <p class="title">Communication and Information Sciences</p>
-        <p>Gamification of data curation for aging populations</p>
+        <p>Gamification of data curation for age-related cognitive disease</p>
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="img2.jpg" alt="Mike" style="width:100%">
+      <img src="img2.jpg" alt="Chris" style="width:100%">
       <div class="container">
         <h2>Chris Slade</h2>
         <p class="title">Information and Computer Sciences</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <p>Mobile sensing and educational therapeutics for psychiatry</p>
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="img3.jpg" alt="John" style="width:100%">
+      <img src="img3.jpg" alt="TBD" style="width:100%">
       <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <h2>Kai-Ying Lin</h2>
+        <p class="title">Linguistics</p>
+        <p>NLP detection of age-related cognitive disease</p>
       </div>
     </div>
   </div>
@@ -191,5 +187,50 @@ author_profile: true
     </div>
   </div>
 </div>
+
+
+<h2>Collaborating students</h2>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="img1.jpg" alt="Jane" style="width:100%">
+      <div class="container">
+        <h2>Jane Doe</h2>
+        <p class="title">CEO &amp; Founder</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="img2.jpg" alt="Mike" style="width:100%">
+      <div class="container">
+        <h2>Mike Ross</h2>
+        <p class="title">Art Director</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="img3.jpg" alt="John" style="width:100%">
+      <div class="container">
+        <h2>John Doe</h2>
+        <p class="title">Designer</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <p><button class="button">Contact</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 

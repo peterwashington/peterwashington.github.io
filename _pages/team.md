@@ -68,7 +68,7 @@ author_profile: true
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="img1.jpg" alt="Arby" style="width:100%">
+      <img src="../images/arby.jpeg" alt="Arby" style="width:100%">
       <div class="container">
         <h2>Arby Barone</h2>
         <p class="title">Communication and Information Sciences</p>
@@ -79,7 +79,7 @@ author_profile: true
 
   <div class="column">
     <div class="card">
-      <img src="img2.jpg" alt="Chris" style="width:100%">
+      <img src="../images/chris.jpeg" alt="Chris" style="width:100%">
       <div class="container">
         <h2>Chris Slade</h2>
         <p class="title">Information and Computer Sciences</p>
@@ -90,11 +90,11 @@ author_profile: true
 
   <div class="column">
     <div class="card">
-      <img src="img3.jpg" alt="TBD" style="width:100%">
+      <img src="../images/kaiying.jpeg" alt="TBD" style="width:100%">
       <div class="container">
         <h2>Kai-Ying Lin</h2>
         <p class="title">Linguistics</p>
-        <p>NLP detection of age-related cognitive disease</p>
+        <p>(Collaborator) NLP detection of age-related cognitive disease</p>
       </div>
     </div>
   </div>

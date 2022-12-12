@@ -90,10 +90,11 @@ author_profile: true
 
   <div class="column">
     <div class="card">
-      <img src="../images/kaiying.jpeg" alt="TBD" style="width:100%">
+      <img src="../images/kaiying.jpeg" alt="Kai-Ying" style="width:100%">
       <div class="container">
         <h2>Kai-Ying Lin</h2>
-        <p class="title">Linguistics</p>
+        <p class="title">Linguistics
+        </p>
         <p>(Collaborator) NLP detection of age-related cognitive disease</p>
       </div>
     </div>
@@ -101,6 +102,45 @@ author_profile: true
 </div>
 
 <h2>MS students</h2>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="../images/aditi.png" alt="Aditi" style="width:100%">
+      <div class="container">
+        <h2>Aditi Jaiswal</h2>
+        <p class="title">Information and Computer Sciences</p>
+        <p>Social media mining for autism detection</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="../images/yang.jpeg" alt="Yang" style="width:100%">
+      <div class="container">
+        <h2>Yang Qian</h2>
+        <p class="title">Information and Computer Sciences</p>
+        <p>Computer vision and EEG analysis for emotion recognition</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="../images/tanvir.jpeg" alt="Tanvir" style="width:100%">
+      <div class="container">
+        <h2>Tanvir Islam</h2>
+        <p class="title">Information and Computer Sciences</p>
+        <p>Machine learning with wearable biosignals for stress detection</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<h2>Undergraduate students</h2>
 
 <div class="row">
   <div class="column">
@@ -144,8 +184,7 @@ author_profile: true
 </div>
 
 
-
-<h2>Undergraduate students</h2>
+<h2>High school students</h2>
 
 <div class="row">
   <div class="column">

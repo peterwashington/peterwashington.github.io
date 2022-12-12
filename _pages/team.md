@@ -62,7 +62,7 @@ author_profile: true
 </style>
 
 
-<h2>PhD researchers</h2>
+<h2>PhD students</h2>
 
 
 <div class="row">
@@ -90,7 +90,7 @@ author_profile: true
 
 </div>
 
-<h2>MS researchers</h2>
+<h2>MS students</h2>
 
 <div class="row">
   <div class="column">
@@ -129,7 +129,7 @@ author_profile: true
 
 
 
-<h2>Undergraduate researchers</h2>
+<h2>Undergraduate students</h2>
 
 <div class="row">
   <div class="column">
@@ -157,7 +157,7 @@ author_profile: true
 </div>
 
 
-<h2>Collaborating student researchers</h2>
+<h2>Collaborating students</h2>
 
 <div class="row">
   <div class="column">

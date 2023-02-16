@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Peter Washington"
+title                    : "Peter Yiğitcan Washington"
 title_separator          : "-"
 name                     : &name "Professor at University of Hawaii"
 description              : &description "Academic website for Peter Washington, Assistant Professor in Computer Science at the University of Hawaii at Manoa"
@@ -80,7 +80,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Peter Washington"
+  name             : "Peter Yiğitcan Washington"
   avatar           : "https://peterwashington.github.io/files/profile_new.png"
   bio              : "Assistant Professor"
   location         : "Honolulu, HI"

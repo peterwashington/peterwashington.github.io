@@ -224,7 +224,7 @@ author_profile: true
 
   <div class="column">
     <div class="card">
-      <img src="../images/kaiying.jpeg" alt="Kai-Ying" style="width:100%; height:100%">
+      <img src="../images/phee.jpeg" alt="Phee" style="width:100%; height:100%">
       <div class="container">
         <h2>Phee Nimitsurachat</h2>
         <p class="title">Stanford University</p>

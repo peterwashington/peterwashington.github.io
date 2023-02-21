@@ -216,9 +216,19 @@ author_profile: true
       <img src="../images/kaiying.jpeg" alt="Kai-Ying" style="width:100%; height:100%">
       <div class="container">
         <h2>Kai-Ying Lin</h2>
-        <p class="title">Linguistics
-        </p>
+        <p class="title">Linguistics</p>
         <p>NLP detection of age-related cognitive disease (primary advisor Kamil Ud Deen)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="../images/kaiying.jpeg" alt="Kai-Ying" style="width:100%; height:100%">
+      <div class="container">
+        <h2>Phee Nimitsurachat</h2>
+        <p class="title">Stanford University</p>
+        <p>Self-supervised learning for human affect</p>
       </div>
     </div>
   </div>

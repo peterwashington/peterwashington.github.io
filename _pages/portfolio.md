@@ -24,6 +24,7 @@ We develop machine learning methods and datasets to support diagnostics, longitu
 ------
 We create human-in-the-loop systems to accelerate remote diagnostics and longitudinal outcome tracking for complex neuropsychiatric conditions. Example projects:
 
+* <a href="https://peterwashington.github.io/files/AutismResearchProtocol.pdf">Digitally Diagnosing Multiple Developmental Delays using Crowdsourcing fused with Machine Learning: A Research Protocol</a>
 * [Crowdsourced privacy-preserved feature tagging of short home videos for machine learning ASD detection](https://www.nature.com/articles/s41598-021-87059-4 "Scientific Reports")
 * [Crowd annotations can approximate clinical autism impressions from short home videos with privacy protections](https://www.sciencedirect.com/science/article/pii/S2666521222000096 "Intelligence-Based Medicine")
 

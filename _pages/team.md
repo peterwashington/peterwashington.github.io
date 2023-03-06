@@ -91,7 +91,7 @@ author_profile: true
 
   <div class="column">
     <div class="card">
-      <img src="../images/ali.jpeg" alt="Ali" style="width:100%">
+      <img src="../images/ali.jpg" alt="Ali" style="width:100%">
       <div class="container">
         <h2>Ali Kargarandehkordi</h2>
         <p class="title">Information and Computer Sciences</p>

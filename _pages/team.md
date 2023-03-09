@@ -73,7 +73,7 @@ author_profile: true
       <div class="container">
         <h2>Arby Barone</h2>
         <p class="title">Communication and Information Sciences</p>
-        <p>Gamification of data curation</p>
+        <p>Gamification</p>
       </div>
     </div>
   </div>
@@ -84,7 +84,7 @@ author_profile: true
       <div class="container">
         <h2>Chris Slade</h2>
         <p class="title">Information and Computer Sciences</p>
-        <p>Mobile sensing and educational therapeutics</p>
+        <p>Mobile sensing</p>
       </div>
     </div>
   </div>
@@ -102,6 +102,21 @@ author_profile: true
 
 </div>
 
+<div class="row">
+
+  <div class="column">
+    <div class="card">
+      <img src="../images/yang.jpeg" alt="Yang" style="width:100%; height:100%">
+      <div class="container">
+        <h2>Yang Qian</h2>
+        <p class="title">Information and Computer Sciences</p>
+        <p>Multimodal and generative deep learning</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <h2>MS students</h2>
 
 <div class="row">
@@ -112,18 +127,7 @@ author_profile: true
       <div class="container">
         <h2>Aditi Jaiswal</h2>
         <p class="title">Information and Computer Sciences</p>
-        <p>Social media mining for psychiatry and behavioral sciences</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <img src="../images/yang.jpeg" alt="Yang" style="width:100%; height:100%">
-      <div class="container">
-        <h2>Yang Qian</h2>
-        <p class="title">Information and Computer Sciences</p>
-        <p>Computer vision and EEG analysis for affective computing</p>
+        <p>Natural language processing</p>
       </div>
     </div>
   </div>
@@ -134,7 +138,7 @@ author_profile: true
       <div class="container">
         <h2>Tanvir Islam</h2>
         <p class="title">Information and Computer Sciences</p>
-        <p>Machine learning with wearable biosignals for stress detection</p>
+        <p>Personalized deep learning</p>
       </div>
     </div>
   </div>
@@ -148,7 +152,7 @@ author_profile: true
       <div class="container">
         <h2>Armin Soltan</h2>
         <p class="title">Information and Computer Sciences</p>
-        <p>Fair machine learning for breast cancer detection</p>
+        <p>Fair machine learning</p>
       </div>
     </div>
   </div>
@@ -159,7 +163,7 @@ author_profile: true
       <div class="container">
         <h2>Lydia Sollis</h2>
         <p class="title">Information and Computer Sciences</p>
-        <p>Digital interventions for diet and exercise</p>
+        <p>Digital interventions</p>
       </div>
     </div>
   </div>
@@ -177,18 +181,7 @@ author_profile: true
       <div class="container">
         <h2>Jing Zheng</h2>
         <p class="title">Information and Computer Sciences</p>
-        <p>Gamification of data curation for affective computing</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      <img src="../images/wilson.jpeg" alt="Wilson" style="width:100%">
-      <div class="container">
-        <h2>Wilson Tran</h2>
-        <p class="title">Information and Computer Sciences</p>
-        <p>Machine learning with wearable biosignals for stress detection</p>
+        <p>Gamification and data science</p>
       </div>
     </div>
   </div>
@@ -234,6 +227,10 @@ author_profile: true
   </div>
 
 </div>
+
+<h2>Alumni</h2>
+
+Wilson Tran, undergraduate student
 
 
 

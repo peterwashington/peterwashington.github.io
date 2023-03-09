@@ -143,10 +143,7 @@ author_profile: true
     </div>
   </div>
 
-</div>
-
-<div class="row">
-	<div class="column">
+  <div class="column">
     <div class="card">
       <img src="../images/armin.jpeg" alt="Tanvir" style="width:100%; height:100%">
       <div class="container">
@@ -157,6 +154,10 @@ author_profile: true
     </div>
   </div>
 
+</div>
+
+<div class="row">
+	
   <div class="column">
     <div class="card">
       <img src="../images/lydia.jpeg" alt="Tanvir" style="width:100%; height:100%">
@@ -167,6 +168,7 @@ author_profile: true
       </div>
     </div>
   </div>
+
 </div>
 
 

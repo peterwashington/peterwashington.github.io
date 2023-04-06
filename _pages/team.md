@@ -115,12 +115,6 @@ author_profile: true
     </div>
   </div>
 
-</div>
-
-<h2>MS students</h2>
-
-<div class="row">
-
   <div class="column">
     <div class="card">
       <img src="../images/aditi.png" alt="Aditi" style="width:100%; height:100%">
@@ -131,6 +125,12 @@ author_profile: true
       </div>
     </div>
   </div>
+
+</div>
+
+<h2>MS students</h2>
+
+<div class="row">
 
   <div class="column">
     <div class="card">
@@ -145,7 +145,7 @@ author_profile: true
 
   <div class="column">
     <div class="card">
-      <img src="../images/armin.jpeg" alt="Tanvir" style="width:100%; height:100%">
+      <img src="../images/armin.jpeg" alt="Armin" style="width:100%; height:100%">
       <div class="container">
         <h2>Armin Soltan</h2>
         <p class="title">Information and Computer Sciences</p>
@@ -153,14 +153,10 @@ author_profile: true
       </div>
     </div>
   </div>
-
-</div>
-
-<div class="row">
 	
   <div class="column">
     <div class="card">
-      <img src="../images/lydia.jpeg" alt="Tanvir" style="width:100%; height:100%">
+      <img src="../images/lydia.jpeg" alt="Lydia" style="width:100%; height:100%">
       <div class="container">
         <h2>Lydia Sollis</h2>
         <p class="title">Information and Computer Sciences</p>

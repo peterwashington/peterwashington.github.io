@@ -5,6 +5,7 @@ title: "Personal"
 author_profile: true
 ---
 
+When not working, you can find me at one of the many beautiful beaches on Oahu, including but not limited to Lanikai (Figure 1), as well as spending time with my wife Bianca and dog Stella Roo (Figure 2).
 
 
 <center>

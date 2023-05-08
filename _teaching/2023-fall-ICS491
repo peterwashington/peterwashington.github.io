@@ -1,0 +1,66 @@
+---
+title: "ICS 491: Human-Centered Data Science"
+collection: teaching
+type: "Undergraduate course"
+permalink: /teaching/2023-fall-ICS491
+venue: "ICS Department, University of Hawaiʻi at Mānoa"
+date: 2023-08-21
+location: "Honolulu, HI"
+author_profile: false
+---
+
+There are several challenges that arise when working with human data, including privacy, fairness, ethics, and new modeling methods - to name just a few. Human-Centered Data Science is a course which covers the human-facing aspects of data science. This course discusses methods developed specifically for the analysis of biological, medical, social, text, and audiovisual data. As such, this course will cover the basics of biomedical informatics, health informatics, social network informatics, media analytics, and natural language processing. These topics require a thorough discussion of study design, research study analysis, privacy-preserving analysis, unbiased analysis, explainable analysis, qualitative analysis, and ethical tradeoffs between analysis decisions.  No prior data science knowledge is required.
+
+**Coursework:** Coursework consists of three Python notebook homework coding assignments, a final class project for a human-centered data science topic of your choosing (coding and writing) including several intermediate milestones throughout the semester, and in-class discussions and activities
+
+**Grading:** Grading will consist of a combination of a coding assignments, written work, presentations, and participation. Specifically, the breakdown is as follows:
+* Class attendance and participation: 10% (excused absences are okay; just ask me beforehand)
+* Leading class discussion on chosen topic: 10%
+* Python coding notebooks: 30% (3 notebooks, 10% each)
+* Final project milestones: 30% (6 milestones, 5% each)
+* Final project report and code: 20%
+
+
+| Date | Topic | Assignment Due (midnight before class) |
+| Tue Aug 22	   | Course Overview	   |	|
+| Thu Aug 24	   | 	   |	|
+| Tue Aug 29	   | 	   |	|
+| Thu Aug 31	   | 	   |	|
+| Tue Sep 5	   | 	   |	|
+| Thu Sep 7	   | 	   |	|
+| Tue Sep 12	   | 	   |	|
+| Thu Sep 14	   | 	   |	|
+| Tue Sep 19	   | 	   |	|
+| Thu Sep 21	   | 	   |	|
+| Tue Sep 26	   | 	   |	|
+| Thu Sep 28	   | 	   |	|
+| Tue Oct 3	   | 	   |	|
+| Thu Oct 5	   | 	   |	|
+| Tue Oct 10	   | 	   |	|
+| Thu Oct 12	   | 	   |	|
+| Tue Oct 17	   | 	   |	|
+| Thu Oct 19	   | 	   |	|
+| Tue Oct 24	   | 	   |	|
+| Thu Oct 26	   | 	   |	|
+| Tue Oct 31	   | 	   |	|
+| Thu Nov 2	   | 	   |	|
+| Tue Nov 7	   | 	   |	|
+| Thu Nov 9	   | 	   |	|
+| Tue Nov 14	   | 	   |	|
+| Thu Nov 16	   | 	   |	|
+| Tue Nov 21	   | (Class on Zoom) 	   |	|
+| Thu Nov 23	   | Thanksgiving Holiday	   |	|
+| Tue Nov 28	   | 	   |	|
+| Thu Nov 30	   | 	   |	|
+| Tue Dec 5 	   | 	   |	|
+| Thu Dec 7 	   | 	   |	|
+| Fri Dec 15 	   | 	   | Final Project	|
+
+
+
+
+
+
+
+
+

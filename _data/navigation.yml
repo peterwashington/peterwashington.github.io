@@ -3,8 +3,8 @@ main:
   - title: "Research Projects"
     url: /portfolio/
 
-  - title: "Research Team"
-    url: /team/
+  # - title: "Research Team"
+  #   url: /team/
 
   - title: "Teaching"
     url: /teaching/    

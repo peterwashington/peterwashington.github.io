@@ -8,5 +8,7 @@ author_profile: true
 
 {% include base_path %}
 
-<meta http-equiv="Refresh" content="0; url='https://hawaiidigitalhealthlab.com/'" />
+Coming soon.
+
+<!-- <meta http-equiv="Refresh" content="0; url='https://hawaiidigitalhealthlab.com/'" /> -->
 

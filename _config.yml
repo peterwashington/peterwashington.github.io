@@ -86,7 +86,7 @@ author:
   location         : "Honolulu, HI"
   employer         : "University of Hawaiʻi at Mānoa"
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "https://scholar.google.com/citations?user=-xTe7qMAAAAJ&hl=en"
+  googlescholar    : # "https://scholar.google.com/citations?user=-xTe7qMAAAAJ&hl=en"
   email            : "pyw [at] hawaii [dot] edu"
   researchgate     : # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
@@ -103,7 +103,7 @@ author:
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         : "washingtonpeter"
-  orcid            : "http://orcid.org/0000-0003-3276-4411"
+  orcid            : # "http://orcid.org/0000-0003-3276-4411"
   pinterest        :
   soundcloud       :
   stackoverflow    : "1902528/peter-washington"

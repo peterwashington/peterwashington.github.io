@@ -1,10 +1,10 @@
 # main links links
 main:
-  - title: "Research Lab"
+  - title: "Research Lab (Coming Soon)"
     url: /
 
-  # - title: "Research Team"
-  #   url: /team/
+  - title: "Working With Me"
+    url: /workwithme
 
   - title: "Teaching"
     url: /teaching/    

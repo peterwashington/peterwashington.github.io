@@ -4,7 +4,7 @@ main:
     url: /
 
   - title: "Working With Me"
-    url: /workwithme
+    url: /workwithme/
 
   - title: "Teaching"
     url: /teaching/    

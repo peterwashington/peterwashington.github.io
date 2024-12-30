@@ -9,6 +9,7 @@ redirect_from:
 ---
 
 
-I am an incoming Assistant Professor in the Division of Clinical Informatics and Digital Transformation in the Department of Medicine at the University of California, San Francisco (UCSF). Prior to this, I was/am an Assistant Professor in the Information & Computer Sciences department at the University of Hawaiʻi at Mānoa until January 2025. Prior to this role, I completed my PhD in Bioengineering at Stanford University, MS in Computer Science at Stanford University, and BA in Computer Science at Rice University. <a href="https://stacks.stanford.edu/file/druid:rn871vb3166/Stanford_University_Bioengineering_PhD_Thesis__Peter_Washington%20-%20FinalFinal-augmented.pdf" target="_blank">You can read my PhD thesis here.</a>
+My research consists of the use of human-centered artificial intelligence (AI) to develop novel digital diagnostics, screening tools, therapeutics, and interventions for a wide range of health conditions that I or my trainees care about. Our projects are focused on consumer digital health informatics, or the use of data from consumer devices such as smartphones, smartwatches, other wearables (think Oura ring for example), and consumer health devices (think blood pressure or glucose monitors for example) to derive actionable health insights.
 
-My research interests lie at the intersection of healthcare, human-centered computing, artificial intelligence / machine learning, and data science. I am interested in applying these methods to a variety of healthcare problems based on my personal interests and the passions of the clinical informaticians whom I train in my research lab.
+More details can be found on my UCSF profile page (COMING SOON) and my research lab website: the UCSF TECH (Technologies Empowering Consumer Health) Lab (COMING SOON). 
+

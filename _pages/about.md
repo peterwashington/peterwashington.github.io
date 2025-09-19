@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 
-My research consists of the use of human-centered artificial intelligence (AI) to develop novel digital diagnostics, screening tools, therapeutics, and interventions for a wide range of health conditions that I or my trainees care about. Our projects are focused on consumer digital health informatics, or the use of data from consumer devices such as smartphones, smartwatches, other wearables (think Oura ring for example), and consumer health devices (think blood pressure or glucose monitors for example) to derive actionable health insights.
+My research consists of the use of human-centered artificial intelligence (AI) to develop novel digital diagnostics, screening tools, therapeutics, and interventions for a wide range of health conditions that I or my trainees care about. Our projects are focused on both community and consumer digital health informatics. Community digital health informatics is the design, deployment, and evaluation of digital tools with and within community settings, such as clinics, schools, public health departments, and nonprofit partners. Consumer digital health informatics is the use of data from consumer devices such as smartphones, smartwatches, other wearables (think Oura ring for example), and consumer health devices (think blood pressure monitors for example) to derive actionable health insights.
 
-More details can be found on my <a href="https://profiles.ucsf.edu/peter.washington" target="_blank">UCSF profile page</a> and my research lab page for the <a href="https://techlab.ucsf.edu/" target="_blank">UCSF TECH Lab</a> (the "TECH" stands for "Technologies Empowering Consumer Health"). 
+More details can be found on my <a href="https://profiles.ucsf.edu/peter.washington" target="_blank">UCSF profile page</a> and my research lab page for the <a href="https://techlab.ucsf.edu/" target="_blank">UCSF TECH Lab</a> (the "TECH" stands for "Technologies Empowering Community and Consumer Health"). 
 

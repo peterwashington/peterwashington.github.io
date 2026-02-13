@@ -7,25 +7,19 @@
   <style>
     :root{
       --bg:#0b0f19;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.08);
       --stroke:rgba(255,255,255,.12);
       --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.68);
       --muted2:rgba(255,255,255,.52);
-      --good:rgba(255,255,255,.92);
       --shadow: 0 12px 40px rgba(0,0,0,.45);
       --radius:18px;
-      --ring: 0 0 0 3px rgba(255,255,255,.12);
       --pos:#ff5b8a; /* true sepsis */
       --neg:#6bd6ff; /* true non-sepsis */
-      --thr:#ffffff;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:
         radial-gradient(1000px 600px at 20% 10%, rgba(107,214,255,.18), transparent 55%),
@@ -34,128 +28,51 @@
         var(--bg);
       letter-spacing:.2px;
     }
-    .wrap{
-      max-width: 1080px;
-      margin: 18px auto 28px;
-      padding: 0 16px;
-    }
-    .topbar{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom: 14px;
-    }
-    .title{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-    h1{
-      margin:0;
-      font-size: 18px;
-      font-weight: 680;
-      letter-spacing:.3px;
-    }
-    .subtitle{
-      font-size: 12px;
-      color: var(--muted2);
-    }
+    .wrap{max-width:1080px;margin:18px auto 28px;padding:0 16px;}
+    .topbar{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:14px;}
+    .title{display:flex;flex-direction:column;gap:6px;}
+    h1{margin:0;font-size:18px;font-weight:680;letter-spacing:.3px;}
+    .subtitle{font-size:12px;color:var(--muted2);}
     .btn{
-      appearance:none;
-      border:1px solid var(--stroke);
+      appearance:none;border:1px solid var(--stroke);
       background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.06));
-      color:var(--text);
-      padding:10px 12px;
-      border-radius: 12px;
-      cursor:pointer;
+      color:var(--text);padding:10px 12px;border-radius:12px;cursor:pointer;
       box-shadow: 0 10px 26px rgba(0,0,0,.25);
-      font-weight: 600;
-      font-size: 12px;
+      font-weight:600;font-size:12px;
     }
     .btn:hover{filter:brightness(1.06)}
-    .grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:14px;
-    }
-    @media (max-width: 940px){
-      .grid{grid-template-columns: 1fr;}
-    }
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;}
+    @media (max-width:940px){.grid{grid-template-columns:1fr;}}
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
-      border: 1px solid var(--stroke);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
+      border:1px solid var(--stroke);border-radius:var(--radius);
+      box-shadow: var(--shadow);overflow:hidden;
     }
     .card .hd{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding: 14px 14px 10px;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      gap:10px;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 14px 10px;border-bottom:1px solid rgba(255,255,255,.08);gap:10px;
     }
-    .label{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width:0;
-    }
+    .label{display:flex;align-items:center;gap:10px;min-width:0;}
     .pill{
-      font-size: 11px;
-      padding: 5px 10px;
-      border-radius: 999px;
+      font-size:11px;padding:5px 10px;border-radius:999px;
       background: rgba(255,255,255,.07);
       border:1px solid rgba(255,255,255,.12);
-      color: var(--muted);
-      white-space:nowrap;
-      user-select:none;
+      color: rgba(255,255,255,.68);white-space:nowrap;user-select:none;
     }
-    .groupName{
-      font-weight: 760;
-      letter-spacing:.2px;
-      font-size: 13px;
-    }
-    .controls{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-left:auto;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
+    .groupName{font-weight:760;letter-spacing:.2px;font-size:13px;}
+    .controls{display:flex;align-items:center;gap:10px;margin-left:auto;flex-wrap:wrap;justify-content:flex-end;}
     .slider{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding: 6px 10px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
+      display:flex;align-items:center;gap:10px;padding:6px 10px;border-radius:14px;
+      background: rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);
     }
-    input[type="range"]{
-      width: 180px;
-      accent-color: rgba(255,255,255,.9);
-    }
+    input[type="range"]{width:180px;accent-color: rgba(255,255,255,.9);}
     .val{
-      font-feature-settings:"tnum";
-      font-variant-numeric: tabular-nums;
-      font-size: 12px;
-      color: var(--text);
-      opacity:.92;
-      min-width: 52px;
-      text-align:right;
+      font-feature-settings:"tnum";font-variant-numeric:tabular-nums;
+      font-size:12px;color:var(--text);opacity:.92;min-width:52px;text-align:right;
     }
-
-    .body{padding: 12px 14px 14px;}
-
-    .probWrap{margin-top: 2px;}
+    .body{padding:12px 14px 14px;}
     .probLine{
-      position:relative;
-      height: 46px;
-      border-radius: 14px;
+      position:relative;height:46px;border-radius:14px;
       background:
         linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.06)),
         linear-gradient(90deg, rgba(255,255,255,.02), rgba(255,255,255,.05));
@@ -163,208 +80,82 @@
       overflow:hidden;
     }
     .ticks{
-      position:absolute; inset:0;
-      pointer-events:none;
-      opacity:.55;
+      position:absolute; inset:0; pointer-events:none; opacity:.55;
       background:
         linear-gradient(90deg,
-          rgba(255,255,255,.00) 0%,
-          rgba(255,255,255,.00) 9.5%,
-          rgba(255,255,255,.10) 10%,
-          rgba(255,255,255,.00) 10.5%,
-          rgba(255,255,255,.00) 19.5%,
-          rgba(255,255,255,.10) 20%,
-          rgba(255,255,255,.00) 20.5%,
-          rgba(255,255,255,.00) 29.5%,
-          rgba(255,255,255,.10) 30%,
-          rgba(255,255,255,.00) 30.5%,
-          rgba(255,255,255,.00) 39.5%,
-          rgba(255,255,255,.10) 40%,
-          rgba(255,255,255,.00) 40.5%,
-          rgba(255,255,255,.00) 49.5%,
-          rgba(255,255,255,.10) 50%,
-          rgba(255,255,255,.00) 50.5%,
-          rgba(255,255,255,.00) 59.5%,
-          rgba(255,255,255,.10) 60%,
-          rgba(255,255,255,.00) 60.5%,
-          rgba(255,255,255,.00) 69.5%,
-          rgba(255,255,255,.10) 70%,
-          rgba(255,255,255,.00) 70.5%,
-          rgba(255,255,255,.00) 79.5%,
-          rgba(255,255,255,.10) 80%,
-          rgba(255,255,255,.00) 80.5%,
-          rgba(255,255,255,.00) 89.5%,
-          rgba(255,255,255,.10) 90%,
-          rgba(255,255,255,.00) 90.5%,
+          rgba(255,255,255,.00) 0%, rgba(255,255,255,.00) 9.5%, rgba(255,255,255,.10) 10%, rgba(255,255,255,.00) 10.5%,
+          rgba(255,255,255,.00) 19.5%, rgba(255,255,255,.10) 20%, rgba(255,255,255,.00) 20.5%,
+          rgba(255,255,255,.00) 29.5%, rgba(255,255,255,.10) 30%, rgba(255,255,255,.00) 30.5%,
+          rgba(255,255,255,.00) 39.5%, rgba(255,255,255,.10) 40%, rgba(255,255,255,.00) 40.5%,
+          rgba(255,255,255,.00) 49.5%, rgba(255,255,255,.10) 50%, rgba(255,255,255,.00) 50.5%,
+          rgba(255,255,255,.00) 59.5%, rgba(255,255,255,.10) 60%, rgba(255,255,255,.00) 60.5%,
+          rgba(255,255,255,.00) 69.5%, rgba(255,255,255,.10) 70%, rgba(255,255,255,.00) 70.5%,
+          rgba(255,255,255,.00) 79.5%, rgba(255,255,255,.10) 80%, rgba(255,255,255,.00) 80.5%,
+          rgba(255,255,255,.00) 89.5%, rgba(255,255,255,.10) 90%, rgba(255,255,255,.00) 90.5%,
           rgba(255,255,255,.00) 100%
         );
     }
-    .axisLabels{
-      display:flex;
-      justify-content:space-between;
-      margin-top:6px;
-      color:var(--muted2);
-      font-size: 11px;
-      padding: 0 2px;
-    }
+    .axisLabels{display:flex;justify-content:space-between;margin-top:6px;color:var(--muted2);font-size:11px;padding:0 2px;}
     .thr{
-      position:absolute;
-      top: 6px;
-      bottom: 6px;
-      width: 2px;
-      border-radius: 2px;
-      background: rgba(255,255,255,.9);
-      box-shadow: 0 0 0 6px rgba(255,255,255,.10);
+      position:absolute;top:6px;bottom:6px;width:2px;border-radius:2px;
+      background: rgba(255,255,255,.9);box-shadow: 0 0 0 6px rgba(255,255,255,.10);
       pointer-events:none;
     }
     .thrLabel{
-      position:absolute;
-      top: 6px;
-      transform: translateX(-50%);
-      font-size: 10px;
-      color: rgba(255,255,255,.9);
-      padding: 3px 6px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.35);
-      border:1px solid rgba(255,255,255,.16);
-      backdrop-filter: blur(10px);
-      pointer-events:none;
-      white-space:nowrap;
+      position:absolute;top:6px;transform: translateX(-50%);
+      font-size:10px;color: rgba(255,255,255,.9);
+      padding:3px 6px;border-radius:999px;background: rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.16);backdrop-filter: blur(10px);
+      pointer-events:none;white-space:nowrap;
     }
     .pt{
-      position:absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 10px; height: 10px;
-      border-radius: 999px;
-      border: 2px solid rgba(0,0,0,.35);
+      position:absolute;top:50%;transform: translate(-50%, -50%);
+      width:10px;height:10px;border-radius:999px;border:2px solid rgba(0,0,0,.35);
       box-shadow: 0 10px 22px rgba(0,0,0,.25);
       cursor: default;
     }
-    .pt.pos{ background: var(--pos); }
-    .pt.neg{ background: var(--neg); }
+    .pt.pos{background:var(--pos);}
+    .pt.neg{background:var(--neg);}
     .pt.predPos{ outline: 2px solid rgba(255,255,255,.88); outline-offset: 1px; }
     .pt.dim{ opacity:.18; filter:saturate(.75); }
     .pt.glow{ box-shadow: 0 0 0 6px rgba(255,255,255,.10), 0 14px 30px rgba(0,0,0,.35); }
 
-    .legend{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top: 10px;
-      color: var(--muted2);
-      font-size: 11px;
-    }
-    .lgItem{display:flex; align-items:center; gap:8px;}
-    .sw{width:10px; height:10px; border-radius:999px; display:inline-block; border:2px solid rgba(0,0,0,.35);}
+    .legend{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:10px;color:var(--muted2);font-size:11px;}
+    .lgItem{display:flex;align-items:center;gap:8px;}
+    .sw{width:10px;height:10px;border-radius:999px;display:inline-block;border:2px solid rgba(0,0,0,.35);}
     .sw.pos{background:var(--pos)}
     .sw.neg{background:var(--neg)}
-    .sw.outline{background:transparent; border:2px solid rgba(255,255,255,.88);}
-    .miniRow{
-      display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap:10px;
-      margin-top: 12px;
-    }
+    .sw.outline{background:transparent;border:2px solid rgba(255,255,255,.88);}
+
+    .miniRow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px;}
     .mini{
-      padding: 10px 10px;
-      border-radius: 14px;
-      background: rgba(255,255,255,.05);
+      padding:10px 10px;border-radius:14px;background: rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.10);
-      display:flex;
-      flex-direction:column;
-      gap:2px;
-      user-select:none;
-      cursor: default;
+      display:flex;flex-direction:column;gap:2px;user-select:none;cursor:default;
     }
     .mini:hover{background: rgba(255,255,255,.07);}
-    .mini .k{
-      font-size: 10px;
-      color: var(--muted2);
-      letter-spacing:.3px;
-      text-transform:uppercase;
-    }
-    .mini .v{
-      font-feature-settings:"tnum";
-      font-variant-numeric: tabular-nums;
-      font-size: 16px;
-      font-weight: 760;
-    }
-    .mini .s{
-      font-size: 10px;
-      color: var(--muted2);
-      margin-top: 2px;
-      font-feature-settings:"tnum";
-      font-variant-numeric: tabular-nums;
-    }
+    .mini .k{font-size:10px;color:var(--muted2);letter-spacing:.3px;text-transform:uppercase;}
+    .mini .v{font-feature-settings:"tnum";font-variant-numeric:tabular-nums;font-size:16px;font-weight:760;}
+    .mini .s{font-size:10px;color:var(--muted2);margin-top:2px;font-feature-settings:"tnum";font-variant-numeric:tabular-nums;}
 
-    /* Right column */
-    .formula{
-      padding: 12px 14px 14px;
-      border-top:1px solid rgba(255,255,255,.08);
-    }
-    .metricGrid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:10px;
-    }
-    .mCard{
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.05);
-      padding: 12px 12px 12px;
-    }
-    .mHead{
-      display:flex; align-items:baseline; justify-content:space-between; gap:10px;
-      margin-bottom: 8px;
-    }
-    .mName{
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing:.3px;
-      color: rgba(255,255,255,.90);
-    }
-    .mVal{
-      font-feature-settings:"tnum";
-      font-variant-numeric: tabular-nums;
-      font-size: 12px;
-      color: rgba(255,255,255,.82);
-      white-space:nowrap;
-    }
-    .eq{
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing:.2px;
-      line-height: 1.35;
-      color: rgba(255,255,255,.90);
-      word-break: break-word;
-    }
-    .eq sub{font-size: 70%; opacity:.9}
+    .formula{padding:12px 14px 14px;border-top:1px solid rgba(255,255,255,.08);}
+    .metricGrid{display:grid;grid-template-columns:1fr;gap:10px;}
+    .mCard{border-radius:16px;border:1px solid rgba(255,255,255,.10);background: rgba(255,255,255,.05);padding:12px;}
+    .mHead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px;}
+    .mName{font-size:12px;font-weight:800;letter-spacing:.3px;color: rgba(255,255,255,.90);}
+    .mVal{font-feature-settings:"tnum";font-variant-numeric:tabular-nums;font-size:12px;color: rgba(255,255,255,.82);white-space:nowrap;}
+    .eq{font-size:14px;font-weight:700;letter-spacing:.2px;line-height:1.35;color: rgba(255,255,255,.90);word-break:break-word;}
+    .eq sub{font-size:70%;opacity:.9}
     .defs{
-      margin-top: 10px;
-      padding-top: 10px;
-      border-top:1px dashed rgba(255,255,255,.14);
-      color: var(--muted2);
-      font-size: 11px;
-      line-height: 1.35;
-      display:flex;
-      flex-direction:column;
-      gap:4px;
+      margin-top:10px;padding-top:10px;border-top:1px dashed rgba(255,255,255,.14);
+      color:var(--muted2);font-size:11px;line-height:1.35;display:flex;flex-direction:column;gap:4px;
     }
     .defs code{
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      color: rgba(255,255,255,.80);
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.10);
-      padding: 2px 6px;
-      border-radius: 10px;
+      color: rgba(255,255,255,.80);background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.10);padding:2px 6px;border-radius:10px;
     }
-    .tinyNote{
-      color: var(--muted2);
-      font-size: 11px;
-      margin-top: 10px;
-    }
+    .tinyNote{color: var(--muted2);font-size:11px;margin-top:10px;}
   </style>
 </head>
 <body>
@@ -379,7 +170,7 @@
 
     <div class="grid">
       <div>
-        <div class="card" id="groupA">
+        <div class="card">
           <div class="hd">
             <div class="label">
               <span class="groupName">Group A</span>
@@ -394,18 +185,16 @@
             </div>
           </div>
           <div class="body">
-            <div class="probWrap">
-              <div class="probLine" id="lineA">
-                <div class="ticks"></div>
-                <div class="thr" id="thrLineA"></div>
-                <div class="thrLabel" id="thrLabelA">t = 0.50</div>
-              </div>
-              <div class="axisLabels"><span>0</span><span>1</span></div>
-              <div class="legend" aria-label="legend">
-                <div class="lgItem"><span class="sw pos"></span><span>true sepsis</span></div>
-                <div class="lgItem"><span class="sw neg"></span><span>true non-sepsis</span></div>
-                <div class="lgItem"><span class="sw outline"></span><span>pred +</span></div>
-              </div>
+            <div class="probLine" id="lineA">
+              <div class="ticks"></div>
+              <div class="thr" id="thrLineA"></div>
+              <div class="thrLabel" id="thrLabelA">t = 0.50</div>
+            </div>
+            <div class="axisLabels"><span>0</span><span>1</span></div>
+            <div class="legend">
+              <div class="lgItem"><span class="sw pos"></span><span>true sepsis</span></div>
+              <div class="lgItem"><span class="sw neg"></span><span>true non-sepsis</span></div>
+              <div class="lgItem"><span class="sw outline"></span><span>pred +</span></div>
             </div>
 
             <div class="miniRow" id="miniA">
@@ -419,7 +208,7 @@
 
         <div style="height:12px"></div>
 
-        <div class="card" id="groupB">
+        <div class="card">
           <div class="hd">
             <div class="label">
               <span class="groupName">Group B</span>
@@ -434,18 +223,16 @@
             </div>
           </div>
           <div class="body">
-            <div class="probWrap">
-              <div class="probLine" id="lineB">
-                <div class="ticks"></div>
-                <div class="thr" id="thrLineB"></div>
-                <div class="thrLabel" id="thrLabelB">t = 0.50</div>
-              </div>
-              <div class="axisLabels"><span>0</span><span>1</span></div>
-              <div class="legend">
-                <div class="lgItem"><span class="sw pos"></span><span>true sepsis</span></div>
-                <div class="lgItem"><span class="sw neg"></span><span>true non-sepsis</span></div>
-                <div class="lgItem"><span class="sw outline"></span><span>pred +</span></div>
-              </div>
+            <div class="probLine" id="lineB">
+              <div class="ticks"></div>
+              <div class="thr" id="thrLineB"></div>
+              <div class="thrLabel" id="thrLabelB">t = 0.50</div>
+            </div>
+            <div class="axisLabels"><span>0</span><span>1</span></div>
+            <div class="legend">
+              <div class="lgItem"><span class="sw pos"></span><span>true sepsis</span></div>
+              <div class="lgItem"><span class="sw neg"></span><span>true non-sepsis</span></div>
+              <div class="lgItem"><span class="sw outline"></span><span>pred +</span></div>
             </div>
 
             <div class="miniRow" id="miniB">
@@ -458,12 +245,11 @@
         </div>
       </div>
 
-      <div class="card" id="metrics">
+      <div class="card">
         <div class="hd">
           <div class="label">
             <span class="groupName">Metrics</span>
-            <span class="pill" id="summaryPill">Δ</span>
-          </div>
+</div>
         </div>
 
         <div class="formula">
@@ -474,7 +260,7 @@
                 <div class="mVal" id="eoVal">|ΔTPR| + |ΔFPR| = 0.000</div>
               </div>
               <div class="eq">
-                ΔTPR = TPR<sub>A</sub> − TPR<sub>B</sub> &nbsp;&nbsp;·&nbsp;&nbsp; ΔFPR = FPR<sub>A</sub> − FPR<sub>B</sub>
+                ΔTPR = TPR<sub>A</sub> − TPR<sub>B</sub><br>ΔFPR = FPR<sub>A</sub> − FPR<sub>B</sub>
               </div>
             </div>
 
@@ -483,9 +269,7 @@
                 <div class="mName">Equal Opportunity</div>
                 <div class="mVal" id="eoppVal">|ΔTPR| = 0.000</div>
               </div>
-              <div class="eq">
-                ΔTPR = TPR<sub>A</sub> − TPR<sub>B</sub>
-              </div>
+              <div class="eq">ΔTPR = TPR<sub>A</sub> − TPR<sub>B</sub></div>
             </div>
 
             <div class="mCard">
@@ -493,9 +277,7 @@
                 <div class="mName">Statistical Parity</div>
                 <div class="mVal" id="spVal">|ΔPPP| = 0.000</div>
               </div>
-              <div class="eq">
-                ΔPPP = PPP<sub>A</sub> − PPP<sub>B</sub>
-              </div>
+              <div class="eq">ΔPPP = PPP<sub>A</sub> − PPP<sub>B</sub></div>
             </div>
 
             <div class="mCard">
@@ -503,10 +285,7 @@
                 <div class="mName">Disparate Impact</div>
                 <div class="mVal" id="diVal">DI = 1.000</div>
               </div>
-              <div class="eq">
-                log(DI) = log(PPP<sub>A</sub>) − log(PPP<sub>B</sub>)
-              </div>
-              <div class="tinyNote" id="diNote">DI = exp(log(DI)) = PPP<sub>A</sub> / PPP<sub>B</sub></div>
+              <div class="eq">DI = PPP<sub>A</sub> / PPP<sub>B</sub></div>
             </div>
           </div>
 
@@ -521,7 +300,6 @@
   </div>
 
 <script>
-  // Deterministic RNG
   function mulberry32(a){
     return function(){
       let t = a += 0x6D2B79F5;
@@ -530,39 +308,61 @@
       return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
     }
   }
-  function randn(rng){ // Box-Muller
+  function randn(rng){
     let u = 0, v = 0;
     while(u === 0) u = rng();
     while(v === 0) v = rng();
     return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
   }
   function clamp(x, lo, hi){ return Math.max(lo, Math.min(hi, x)); }
-  function fmt(x, d=3){
-    if(!isFinite(x)) return "—";
-    return x.toFixed(d);
-  }
+  function fmt(x){ if(!isFinite(x)) return "—"; return x.toFixed(3); }
 
-  function makeGroup(seed, n, prev, shift){
+  
+  // Generator with small "hard negative" and "hard positive" tails:
+  // - hard negatives: a few blue points in the high-probability region
+  // - hard positives: ensures the far-right points are mostly red
+  function makeGroup(seed, n, prevalence,
+                    muPos, sigPos,
+                    muNeg, sigNeg,
+                    hardNegRate, hardNegMu, hardNegSig,
+                    hardPosRate, hardPosMu, hardPosSig){
     const rng = mulberry32(seed);
     const pts = [];
     for(let i=0;i<n;i++){
-      const y = rng() < prev ? 1 : 0;
-      const mu = y ? (0.72 + shift) : (0.28 + shift);
-      const p = clamp(mu + 0.16*randn(rng), 0.01, 0.99);
+      const y = rng() < prevalence ? 1 : 0;
+
+      let mu = y ? muPos : muNeg;
+      let sig = y ? sigPos : sigNeg;
+
+      // Rare, high-scoring negatives (blue in red region), but not too extreme.
+      if(!y && hardNegRate > 0 && rng() < hardNegRate){
+        mu = hardNegMu;
+        sig = hardNegSig;
+      }
+
+      // A positive tail to keep right-most points predominantly red.
+      if(y && hardPosRate > 0 && rng() < hardPosRate){
+        mu = hardPosMu;
+        sig = hardPosSig;
+      }
+
+      const p = clamp(mu + sig*randn(rng), 0.01, 0.99);
       pts.push({p, y});
     }
-    // Sort so the visual "line" feels tidy
     pts.sort((a,b)=>a.p-b.p);
     return pts;
   }
-
-  const state = {
+const state = {
     thrA: 0.50,
     thrB: 0.50,
     highlight: {A:null, B:null},
     groups: {
-      A: { pts: makeGroup(1337, 34, 0.30, 0.00) },
-      B: { pts: makeGroup(7331, 34, 0.22, -0.04) }
+      // Cleaner separation
+      A: { pts: makeGroup(1337, 34, 0.30, 0.82, 0.11, 0.18, 0.11, 0.00, 0.70, 0.06) },
+
+      // More overlap near threshold (more FP/FN at 0.50),
+      // but with a strong positive tail so the right-most points are mostly red.
+      B: { pts: makeGroup(7331, 36, 0.22,  0.514, 0.143,  0.031, 0.102,  0.066, 0.60, 0.05,  0.321, 0.94, 0.04) }
     }
   };
 
@@ -571,7 +371,6 @@
   function renderPoints(groupKey){
     const line = el(groupKey === "A" ? "lineA" : "lineB");
     line.querySelectorAll(".pt").forEach(n=>n.remove());
-
     const pts = state.groups[groupKey].pts;
     for(let i=0;i<pts.length;i++){
       const pt = pts[i];
@@ -579,7 +378,6 @@
       node.className = "pt " + (pt.y ? "pos":"neg");
       node.style.left = (pt.p*100) + "%";
       node.title = `p=${pt.p.toFixed(2)} · true=${pt.y ? "sepsis":"non-sepsis"}`;
-      node.dataset.idx = String(i);
       line.appendChild(node);
     }
   }
@@ -604,10 +402,7 @@
     const line = el(groupKey === "A" ? "lineA" : "lineB");
     const pts = state.groups[groupKey].pts;
     const nodes = line.querySelectorAll(".pt");
-    nodes.forEach((node, i)=>{
-      const predPos = pts[i].p >= thr;
-      node.classList.toggle("predPos", predPos);
-    });
+    nodes.forEach((node, i)=> node.classList.toggle("predPos", pts[i].p >= thr));
   }
 
   function applyHighlight(groupKey, thr){
@@ -615,10 +410,7 @@
     const line = el(groupKey === "A" ? "lineA" : "lineB");
     const pts = state.groups[groupKey].pts;
     const nodes = line.querySelectorAll(".pt");
-    if(!cat){
-      nodes.forEach(n=>{ n.classList.remove("dim","glow"); });
-      return;
-    }
+    if(!cat){ nodes.forEach(n=>n.classList.remove("dim","glow")); return; }
     nodes.forEach((node, i)=>{
       const pt = pts[i];
       const pred = pt.p >= thr ? 1 : 0;
@@ -626,8 +418,7 @@
       if(pred===1 && pt.y===1) c="TP";
       else if(pred===1 && pt.y===0) c="FP";
       else if(pred===0 && pt.y===1) c="FN";
-      else c="TN";
-      const match = (c === cat);
+      const match = (c===cat);
       node.classList.toggle("dim", !match);
       node.classList.toggle("glow", match);
     });
@@ -652,47 +443,36 @@
     const thr = groupKey==="A" ? state.thrA : state.thrB;
     const stats = classify(state.groups[groupKey].pts, thr);
 
-    // Confusion counts
     el("tp"+groupKey).textContent = stats.tp;
     el("fp"+groupKey).textContent = stats.fp;
     el("fn"+groupKey).textContent = stats.fn;
     el("tn"+groupKey).textContent = stats.tn;
 
-    // Rates
     el("tpr"+groupKey).textContent = "TPR " + fmt(stats.TPR);
     el("fpr"+groupKey).textContent = "FPR " + fmt(stats.FPR);
     el("ppp"+groupKey).textContent = "PPP " + fmt(stats.PPP);
     el("n"+groupKey).textContent = "N " + stats.N;
 
-    // Header pill
-    el("rates"+groupKey).textContent = "TPR " + fmt(stats.TPR,3) + " · FPR " + fmt(stats.FPR,3) + " · PPP " + fmt(stats.PPP,3);
+    el("rates"+groupKey).textContent = "TPR " + fmt(stats.TPR) + " · FPR " + fmt(stats.FPR) + " · PPP " + fmt(stats.PPP);
 
-    // Visual
     setThresholdUI(groupKey, thr);
     applyPredOutline(groupKey, thr);
     applyHighlight(groupKey, thr);
-
     return stats;
   }
 
-  function updateMetrics(statsA, statsB){
-    const dTPR = statsA.TPR - statsB.TPR;
-    const dFPR = statsA.FPR - statsB.FPR;
-    const dPPP = statsA.PPP - statsB.PPP;
+  function updateMetrics(a,b){
+    const dTPR = a.TPR - b.TPR;
+    const dFPR = a.FPR - b.FPR;
+    const dPPP = a.PPP - b.PPP;
 
-    const eo = Math.abs(dTPR) + Math.abs(dFPR);
-    el("eoVal").textContent = "|ΔTPR| + |ΔFPR| = " + fmt(eo);
+    el("eoVal").textContent = "|ΔTPR| + |ΔFPR| = " + fmt(Math.abs(dTPR)+Math.abs(dFPR));
     el("eoppVal").textContent = "|ΔTPR| = " + fmt(Math.abs(dTPR));
     el("spVal").textContent = "|ΔPPP| = " + fmt(Math.abs(dPPP));
 
     const eps = 1e-12;
-    const logDI = Math.log((statsA.PPP+eps)/(statsB.PPP+eps));
-    const DI = Math.exp(logDI);
+    const DI = (a.PPP+eps)/(b.PPP+eps);
     el("diVal").textContent = "DI = " + fmt(DI);
-    el("diNote").innerHTML = 'DI = exp(log(DI)) = PPP<sub>A</sub> / PPP<sub>B</sub>';
-
-    const summary = `ΔTPR ${fmt(dTPR)} · ΔFPR ${fmt(dFPR)} · ΔPPP ${fmt(dPPP)}`;
-    el("summaryPill").textContent = summary;
   }
 
   function wireHover(groupKey){
@@ -700,13 +480,11 @@
     mini.querySelectorAll(".mini").forEach(card=>{
       card.addEventListener("mouseenter", ()=>{
         state.highlight[groupKey] = card.dataset.cat;
-        const thr = groupKey==="A" ? state.thrA : state.thrB;
-        applyHighlight(groupKey, thr);
+        applyHighlight(groupKey, groupKey==="A" ? state.thrA : state.thrB);
       });
       card.addEventListener("mouseleave", ()=>{
         state.highlight[groupKey] = null;
-        const thr = groupKey==="A" ? state.thrA : state.thrB;
-        applyHighlight(groupKey, thr);
+        applyHighlight(groupKey, groupKey==="A" ? state.thrA : state.thrB);
       });
     });
   }
@@ -717,28 +495,16 @@
     updateMetrics(a,b);
   }
 
-  // Init
-  renderPoints("A");
-  renderPoints("B");
-  wireHover("A");
-  wireHover("B");
+  renderPoints("A"); renderPoints("B");
+  wireHover("A"); wireHover("B");
   updateAll();
 
-  // Sliders
-  el("thrA").addEventListener("input", (e)=>{
-    state.thrA = parseFloat(e.target.value);
-    updateAll();
-  });
-  el("thrB").addEventListener("input", (e)=>{
-    state.thrB = parseFloat(e.target.value);
-    updateAll();
-  });
+  el("thrA").addEventListener("input", (e)=>{ state.thrA = parseFloat(e.target.value); updateAll(); });
+  el("thrB").addEventListener("input", (e)=>{ state.thrB = parseFloat(e.target.value); updateAll(); });
 
   el("resetBtn").addEventListener("click", ()=>{
-    state.thrA = 0.50;
-    state.thrB = 0.50;
-    el("thrA").value = "0.50";
-    el("thrB").value = "0.50";
+    state.thrA = 0.50; state.thrB = 0.50;
+    el("thrA").value = "0.50"; el("thrB").value = "0.50";
     updateAll();
   });
 </script>

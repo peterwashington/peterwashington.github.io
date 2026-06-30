@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logistic Risk Models – Interactive</title>
+<style>
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f8fafc;
+    color: #0f172a;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 0.3rem;
+  }
+
+  p.sub {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #475569;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  #topControls {
+    max-width: 900px;
+    margin: 0 auto 10px auto;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+  }
+
+  select {
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid #cbd5f5;
+    background: #ffffff;
+  }
+
+  #layout {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .panel {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 10px 12px;
+    box-shadow: 0 1px 2px rgba(15,23,42,0.04);
+  }
+
+  #featuresPanel {
+    flex: 1 1 360px;
+  }
+
+  #outputPanel {
+    flex: 1 1 360px;
+  }
+
+  .panel-title {
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 6px;
+  }
+
+  .feature-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 4px;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+  }
+
+  .feature-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .feature-name {
+    font-weight: 600;
+  }
+
+  .feature-meta {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-align: right;
+  }
+
+  .feature-meta span.coeff {
+    font-weight: 600;
+  }
+
+  .feature-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  input[type="range"] {
+    flex: 1;
+  }
+
+  .feature-value {
+    width: 52px;
+    text-align: right;
+    font-size: 0.8rem;
+    color: #0f172a;
+  }
+
+  .direction-label {
+    font-size: 0.75rem;
+    padding: 1px 5px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+  }
+
+  .dir-up {
+    color: #b91c1c;
+    border-color: #fecaca;
+    background: #fef2f2;
+  }
+
+  .dir-down {
+    color: #0369a1;
+    border-color: #bfdbfe;
+    background: #eff6ff;
+  }
+
+  .dir-neutral {
+    color: #4b5563;
+    border-color: #e5e7eb;
+    background: #f9fafb;
+  }
+
+  /* Output panel */
+  #riskNumber {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  #riskLabel {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-bottom: 8px;
+  }
+
+  .risk-bar-outer {
+    width: 100%;
+    height: 16px;
+    border-radius: 999px;
+    background: #e5e7eb;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .risk-bar-inner {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #22c55e, #facc15, #ef4444);
+    transition: width 0.15s ease-out;
+  }
+
+  #logitFormula {
+    font-size: 0.82rem;
+    color: #334155;
+    background: #f9fafb;
+    border-radius: 6px;
+    padding: 6px 8px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+
+  #contribTitle {
+    font-size: 0.8rem;
+    color: #6b7280;
+    margin-bottom: 4px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+  }
+
+  th, td {
+    padding: 3px 4px;
+    text-align: left;
+  }
+
+  th {
+    color: #6b7280;
+    font-weight: 500;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  td.contrib {
+    text-align: right;
+  }
+
+  tr:nth-child(even) td {
+    background: #f9fafb;
+  }
+
+  #modelNote {
+    margin-top: 8px;
+    font-size: 0.78rem;
+    color: #64748b;
+  }
+
+  @media (max-width: 700px) {
+    #layout {
+      flex-direction: column;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>Logistic Risk Models</h1>
+<p class="sub">
+Choose a scenario, adjust features, and see how risk changes.
+</p>
+
+<div id="topControls">
+  <span>Risk model:</span>
+  <select id="modelSelect">
+    <option value="cardio">Cardiovascular risk (lifestyle)</option>
+    <option value="stress">Stress risk (wearables)</option>
+    <option value="ehr">Readmission risk (EHR)</option>
+  </select>
+</div>
+
+<div id="layout">
+  <div id="featuresPanel" class="panel">
+    <div class="panel-title">Patient features</div>
+    <!-- feature controls inserted here by JS -->
+  </div>
+
+  <div id="outputPanel" class="panel">
+    <div class="panel-title">Model output</div>
+    <div id="riskNumber">–%</div>
+    <div id="riskLabel">Predicted risk</div>
+    <div class="risk-bar-outer">
+      <div id="riskBar" class="risk-bar-inner"></div>
+    </div>
+
+    <div id="logitFormula"></div>
+    <div id="contribTitle">Feature contributions (β × x):</div>
+    <div style="max-height: 180px; overflow-y: auto;">
+      <table id="contribTable">
+        <!-- rows inserted by JS -->
+      </table>
+    </div>
+
+    <div id="modelNote"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  // Define three interpretable logistic models
+  const models = {
+    cardio: {
+      id: "cardio",
+      name: "Cardiovascular risk (lifestyle)",
+      note: "Higher age, smoking, higher BMI and family history increase risk; more exercise lowers risk.",
+      intercept: -5.0,
+      features: [
+        {
+          key: "age",
+          label: "Age (years)",
+          min: 20, max: 80, step: 1, default: 50,
+          unit: "years",
+          coeff: 0.045,
+          direction: "up"
+        },
+        {
+          key: "smoker",
+          label: "Smoking status",
+          type: "binary",
+          unit: "yes / no",
+          coeff: 1.3,
+          direction: "up",
+          default: 0
+        },
+        {
+          key: "exercise",
+          label: "Weekly exercise",
+          min: 0, max: 5, step: 1, default: 2,
+          unit: "hours/week",
+          coeff: -0.25,
+          direction: "down"
+        },
+        {
+          key: "bmi",
+          label: "Body mass index (BMI)",
+          min: 18, max: 40, step: 1, default: 26,
+          unit: "kg/m²",
+          coeff: 0.08,
+          direction: "up"
+        },
+        {
+          key: "family",
+          label: "Family history of CVD",
+          type: "binary",
+          unit: "yes / no",
+          coeff: 0.9,
+          direction: "up",
+          default: 0
+        }
+      ]
+    },
+    stress: {
+      id: "stress",
+      name: "Stress risk (wearable signals)",
+      note: "Higher resting heart rate, longer screen time, and less sleep/steps increase stress risk.",
+      intercept: -1.5,
+      features: [
+        {
+          key: "rhr",
+          label: "Resting heart rate",
+          min: 50, max: 100, step: 1, default: 75,
+          unit: "beats/min",
+          coeff: 0.03,
+          direction: "up"
+        },
+        {
+          key: "sleep",
+          label: "Sleep duration",
+          min: 4, max: 9, step: 0.5, default: 7,
+          unit: "hours/night",
+          coeff: -0.4,
+          direction: "down"
+        },
+        {
+          key: "steps",
+          label: "Daily steps",
+          min: 2000, max: 15000, step: 500, default: 6000,
+          unit: "steps/day",
+          coeff: -0.0002,
+          direction: "down"
+        },
+        {
+          key: "screentime",
+          label: "Evening screen time",
+          min: 0, max: 6, step: 0.5, default: 2,
+          unit: "hours after 6 pm",
+          coeff: 0.35,
+          direction: "up"
+        },
+        {
+          key: "hrv",
+          label: "Heart rate variability",
+          min: 10, max: 80, step: 2, default: 40,
+          unit: "ms",
+          coeff: -0.02,
+          direction: "down"
+        }
+      ]
+    },
+    ehr: {
+      id: "ehr",
+      name: "30-day readmission risk (EHR features)",
+      note: "More comorbidities, prior admissions, and long stays increase risk; discharge home lowers risk.",
+      intercept: -2.2,
+      features: [
+        {
+          key: "charlson",
+          label: "Comorbidity burden",
+          min: 0, max: 10, step: 1, default: 3,
+          unit: "Charlson score",
+          coeff: 0.35,
+          direction: "up"
+        },
+        {
+          key: "priorAdm",
+          label: "Prior admissions (1 year)",
+          min: 0, max: 6, step: 1, default: 1,
+          unit: "count",
+          coeff: 0.4,
+          direction: "up"
+        },
+        {
+          key: "los",
+          label: "Length of stay",
+          min: 1, max: 20, step: 1, default: 5,
+          unit: "days",
+          coeff: 0.07,
+          direction: "up"
+        },
+        {
+          key: "dischargeHome",
+          label: "Discharge to home",
+          type: "binary",
+          unit: "yes / no",
+          coeff: -0.9,
+          direction: "down",
+          default: 1
+        },
+        {
+          key: "medComplex",
+          label: "Medication complexity",
+          min: 1, max: 15, step: 1, default: 5,
+          unit: "active meds",
+          coeff: 0.08,
+          direction: "up"
+        }
+      ]
+    }
+  };
+
+  const modelSelect = document.getElementById("modelSelect");
+  const featuresPanel = document.getElementById("featuresPanel");
+  const riskNumberEl = document.getElementById("riskNumber");
+  const riskBarEl = document.getElementById("riskBar");
+  const logitFormulaEl = document.getElementById("logitFormula");
+  const contribTableEl = document.getElementById("contribTable");
+  const modelNoteEl = document.getElementById("modelNote");
+
+  function directionClass(dir) {
+    if (dir === "up") return "direction-label dir-up";
+    if (dir === "down") return "direction-label dir-down";
+    return "direction-label dir-neutral";
+  }
+
+  function buildFeatureControls(model) {
+    const existingRows = featuresPanel.querySelectorAll(".feature-row");
+    existingRows.forEach(r => r.remove());
+
+    model.features.forEach(f => {
+      const row = document.createElement("div");
+      row.className = "feature-row";
+      row.dataset.key = f.key;
+
+      const header = document.createElement("div");
+      header.className = "feature-header";
+
+      const nameSpan = document.createElement("div");
+      nameSpan.className = "feature-name";
+      nameSpan.textContent = f.label;
+      header.appendChild(nameSpan);
+
+      const metaSpan = document.createElement("div");
+      metaSpan.className = "feature-meta";
+
+      const coeffSpan = document.createElement("span");
+      coeffSpan.className = "coeff";
+      coeffSpan.textContent = `β = ${f.coeff > 0 ? "+" : ""}${f.coeff.toFixed(3)}`;
+      metaSpan.appendChild(coeffSpan);
+
+      const dirSpan = document.createElement("span");
+      dirSpan.className = directionClass(f.direction);
+      if (f.direction === "up") dirSpan.textContent = "↑ increases risk";
+      else if (f.direction === "down") dirSpan.textContent = "↓ reduces risk";
+      else dirSpan.textContent = "≈ neutral";
+      metaSpan.appendChild(document.createTextNode(" "));
+      metaSpan.appendChild(dirSpan);
+
+      header.appendChild(metaSpan);
+
+      const sliderRow = document.createElement("div");
+      sliderRow.className = "feature-slider-row";
+
+      const valueLabel = document.createElement("div");
+      valueLabel.className = "feature-value";
+
+      let inputControl;
+
+      if (f.type === "binary") {
+        inputControl = document.createElement("select");
+        inputControl.dataset.key = f.key;
+
+        const optNo = document.createElement("option");
+        optNo.value = 0;
+        optNo.textContent = "No";
+
+        const optYes = document.createElement("option");
+        optYes.value = 1;
+        optYes.textContent = "Yes";
+
+        inputControl.appendChild(optNo);
+        inputControl.appendChild(optYes);
+
+        inputControl.value = f.default != null ? String(f.default) : "0";
+        valueLabel.textContent = inputControl.value === "1" ? "Yes" : "No";
+
+        inputControl.addEventListener("change", () => {
+          valueLabel.textContent = inputControl.value === "1" ? "Yes" : "No";
+          updateOutputs();
+        });
+      } else {
+        inputControl = document.createElement("input");
+        inputControl.type = "range";
+        inputControl.min = f.min;
+        inputControl.max = f.max;
+        inputControl.step = f.step;
+        inputControl.value = f.default;
+        inputControl.dataset.key = f.key;
+
+        valueLabel.textContent = `${f.default} ${f.unit ? f.unit : ""}`;
+
+        inputControl.addEventListener("input", () => {
+          valueLabel.textContent = `${inputControl.value} ${f.unit ? f.unit : ""}`;
+          updateOutputs();
+        });
+      }
+
+      sliderRow.appendChild(inputControl);
+      sliderRow.appendChild(valueLabel);
+
+      row.appendChild(header);
+      row.appendChild(sliderRow);
+
+      featuresPanel.appendChild(row);
+    });
+  }
+
+  function getCurrentModel() {
+    const key = modelSelect.value;
+    return models[key];
+  }
+
+  function computeLogitAndContribs(model) {
+    const controls = featuresPanel.querySelectorAll("input[type=range], select[data-key]");
+    let logit = model.intercept;
+    const contribs = [];
+
+    controls.forEach(ctrl => {
+      const key = ctrl.dataset.key;
+      const featureDef = model.features.find(f => f.key === key);
+      if (!featureDef) return;
+
+      let x = parseFloat(ctrl.value);
+      if (isNaN(x)) x = 0;
+
+      const c = featureDef.coeff * x;
+      logit += c;
+      contribs.push({
+        label: featureDef.label,
+        x: x,
+        beta: featureDef.coeff,
+        term: c
+      });
+    });
+
+    return { logit, contribs };
+  }
+
+  function logistic(p) {
+    return 1 / (1 + Math.exp(-p));
+  }
+
+  function updateOutputs() {
+    const model = getCurrentModel();
+    const { logit, contribs } = computeLogitAndContribs(model);
+    const p = logistic(logit);
+
+    const pct = (p * 100).toFixed(1);
+    riskNumberEl.textContent = `${pct}%`;
+    riskBarEl.style.width = `${Math.max(0, Math.min(100, p * 100))}%`;
+
+    const parts = [];
+    parts.push(`logit(p) = ${model.intercept.toFixed(2)}`);
+    contribs.forEach(c => {
+      const sign = c.beta >= 0 ? "+" : "−";
+      parts.push(` ${sign} ${Math.abs(c.beta).toFixed(3)}×${c.label}`);
+    });
+    logitFormulaEl.textContent = parts.join("");
+
+    contribTableEl.innerHTML = "";
+    const headerRow = document.createElement("tr");
+    ["Feature", "x", "β", "β×x"].forEach(h => {
+      const th = document.createElement("th");
+      th.textContent = h;
+      headerRow.appendChild(th);
+    });
+    contribTableEl.appendChild(headerRow);
+
+    contribs.forEach(c => {
+      const tr = document.createElement("tr");
+      const tdLabel = document.createElement("td");
+      tdLabel.textContent = c.label;
+      const tdX = document.createElement("td");
+      tdX.textContent = c.x.toFixed(2);
+      const tdBeta = document.createElement("td");
+      tdBeta.textContent = c.beta.toFixed(3);
+      const tdTerm = document.createElement("td");
+      tdTerm.className = "contrib";
+      tdTerm.textContent = (c.term >= 0 ? "+" : "") + c.term.toFixed(2);
+
+      tr.appendChild(tdLabel);
+      tr.appendChild(tdX);
+      tr.appendChild(tdBeta);
+      tr.appendChild(tdTerm);
+      contribTableEl.appendChild(tr);
+    });
+
+    modelNoteEl.textContent = model.note;
+  }
+
+  function onModelChange() {
+    const model = getCurrentModel();
+    const title = featuresPanel.querySelector(".panel-title");
+    if (title) title.textContent = `Patient features – ${model.name}`;
+    buildFeatureControls(model);
+    updateOutputs();
+  }
+
+  modelSelect.addEventListener("change", onModelChange);
+
+  onModelChange();
+})();
+</script>
+
+</body>
+</html>

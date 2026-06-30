@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistic Regression: Clinical Risk Prediction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f7fa;
+            height: 100vh;
+            overflow: hidden;
+            color: #2d3748;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .container {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 300px 1fr 380px;
+            grid-template-rows: 48px 1fr;
+            gap: 0;
+            background: #e2e8f0;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            background: #2c3e50;
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header h1 {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .header .info-icon {
+            cursor: pointer;
+            font-size: 14px;
+            opacity: 0.7;
+            transition: all 0.2s;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .header .info-icon:hover {
+            opacity: 1;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .sidebar {
+            background: white;
+            padding: 16px;
+            overflow-y: auto;
+            border-right: 1px solid #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .main {
+            background: white;
+            padding: 16px;
+            overflow-y: auto;
+            border-right: 1px solid #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .results {
+            background: #fafbfc;
+            padding: 16px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .model-selector {
+            margin-bottom: 16px;
+        }
+
+        .model-selector label {
+            display: block;
+            font-size: 10px;
+            font-weight: 600;
+            color: #718096;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .model-selector select {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #cbd5e0;
+            border-radius: 5px;
+            font-size: 13px;
+            background: white;
+            color: #2d3748;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .model-selector select:hover {
+            border-color: #a0aec0;
+        }
+
+        .model-selector select:focus {
+            outline: none;
+            border-color: #2c5282;
+            box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.1);
+        }
+
+        .model-info {
+            font-size: 12px;
+            color: #4a5568;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            padding: 10px 12px;
+            background: #f7fafc;
+            border-radius: 5px;
+            border-left: 3px solid #2c5282;
+        }
+
+        .model-info strong {
+            color: #2d3748;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+
+        .coefficients-list {
+            margin-bottom: 16px;
+        }
+
+        .coefficients-list h3 {
+            font-size: 10px;
+            font-weight: 600;
+            color: #718096;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .coef-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 10px;
+            margin-bottom: 4px;
+            font-size: 12px;
+            background: #f7fafc;
+            border-radius: 5px;
+            transition: background 0.2s;
+        }
+
+        .coef-item:hover {
+            background: #edf2f7;
+        }
+
+        .coef-item span:first-child {
+            flex: 1;
+            color: #2d3748;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .coef-item span:last-child {
+            font-weight: 600;
+            font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .info-icon-small {
+            cursor: pointer;
+            font-size: 14px;
+            opacity: 0.7;
+            transition: all 0.2s;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: rgba(44, 82, 130, 0.1);
+            display: inline-block;
+        }
+
+        .info-icon-small:hover {
+            opacity: 1;
+            background: rgba(44, 82, 130, 0.2);
+        }
+
+        .coef-positive {
+            color: #c53030;
+            background: #fed7d7;
+        }
+
+        .coef-negative {
+            color: #2c5282;
+            background: #bee3f8;
+        }
+
+        .coef-neutral {
+            color: #666;
+            background: #e2e8f0;
+        }
+
+        .slider-group {
+            margin-bottom: 14px;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 7px;
+            font-size: 12px;
+        }
+
+        .slider-label span:first-child {
+            color: #2d3748;
+            font-weight: 500;
+        }
+
+        .slider-label span:last-child {
+            color: #2c5282;
+            font-weight: 600;
+            font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+            padding: 3px 8px;
+            background: #edf2f7;
+            border-radius: 4px;
+        }
+
+        .slider {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #e2e8f0;
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .slider:hover {
+            background: #cbd5e0;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #2c5282;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #2c5282;
+            cursor: pointer;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .reset-btn {
+            width: 100%;
+            padding: 10px;
+            background: #2c5282;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 16px;
+            transition: background 0.2s, transform 0.1s;
+            font-family: inherit;
+        }
+
+        .reset-btn:hover {
+            background: #1e3a5f;
+            transform: translateY(-1px);
+        }
+
+        .reset-btn:active {
+            transform: translateY(0);
+        }
+
+        .equation-box {
+            background: white;
+            padding: 14px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .equation-box h3 {
+            font-size: 10px;
+            font-weight: 600;
+            color: #718096;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .linear-term {
+            font-size: 13px;
+            font-weight: 600;
+            color: #2c5282;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            background: #f7fafc;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+
+        .equation {
+            font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+            font-size: 11px;
+            line-height: 1.7;
+            color: #2d3748;
+            background: #f7fafc;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .equation .coef {
+            color: #2c5282;
+            font-weight: 600;
+        }
+
+        .equation .val {
+            color: #1e3a5f;
+            font-weight: 600;
+        }
+
+        .probability-display {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin: 16px 0;
+            padding: 16px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .risk-tier {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 10px 12px;
+            border-radius: 5px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .risk-low {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .risk-medium {
+            background: #fefcbf;
+            color: #744210;
+        }
+
+        .risk-high {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        .risk-interpretation {
+            font-size: 12px;
+            line-height: 1.5;
+            color: #4a5568;
+            padding: 12px;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 16px;
+        }
+
+        .contributions-panel {
+            margin-bottom: 16px;
+        }
+
+        .contributions-panel h3 {
+            font-size: 10px;
+            font-weight: 600;
+            color: #718096;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contributions-panel h3:hover {
+            color: #2c5282;
+        }
+
+        .contributions-container.collapsed {
+            display: none;
+        }
+
+        .contribution-item {
+            margin-bottom: 10px;
+        }
+
+        .contribution-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 11px;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .contribution-bar-container {
+            height: 24px;
+            background: #e2e8f0;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .contribution-bar {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 8px;
+            font-weight: 600;
+            color: white;
+            font-size: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .contribution-positive {
+            background: #e53e3e;
+        }
+
+        .contribution-negative {
+            background: #2c5282;
+            justify-content: flex-start;
+            padding-left: 8px;
+            padding-right: 0;
+        }
+
+        .contribution-neutral {
+            background: #718096;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            max-width: 640px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal-content h2 {
+            margin-bottom: 20px;
+            color: #1a202c;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .modal-content h3 {
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: #2c5282;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .modal-content p, .modal-content li {
+            line-height: 1.7;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #4a5568;
+        }
+
+        .modal-content ul {
+            margin-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        .close-btn {
+            float: right;
+            cursor: pointer;
+            font-size: 28px;
+            color: #a0aec0;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .close-btn:hover {
+            color: #2d3748;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup.active {
+            display: flex;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            max-width: 500px;
+            max-height: 70vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .popup-content h3 {
+            margin-bottom: 12px;
+            color: #2c5282;
+            font-size: 16px;
+        }
+
+        .popup-content p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #a0aec0;
+            line-height: 1;
+        }
+
+        .popup-close:hover {
+            color: #2d3748;
+        }
+
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 250px 1fr 350px;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto 1fr;
+            }
+            .sidebar, .main, .results {
+                max-height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Logistic Regression: Clinical Risk Prediction</h1>
+            <span class="info-icon" onclick="toggleModal()" title="About Logistic Regression">ℹ</span>
+        </div>
+
+        <div class="sidebar">
+            <div class="model-selector">
+                <label>Model</label>
+                <select id="modelSelect" onchange="loadModel()">
+                    <option value="">-- Select --</option>
+                    <option value="cardiovascular">Cardiovascular Disease Risk</option>
+                    <option value="stress">Stress Prediction</option>
+                    <option value="cancer">Cancer Screening</option>
+                    <option value="cognitive">Cognitive Decline</option>
+                    <option value="infection">Infection Risk</option>
+                </select>
+            </div>
+
+            <div id="modelInfo" class="model-info" style="display:none;"></div>
+
+            <div id="coefficientsPanel" class="coefficients-list" style="display:none;">
+                <h3>Coefficients</h3>
+                <div id="coefficientsList"></div>
+            </div>
+        </div>
+
+        <div class="main">
+            <div id="slidersContainer"></div>
+        </div>
+
+        <div class="results">
+            <div class="equation-box">
+                <h3>Calculation</h3>
+                <div class="linear-term">
+                    Linear: <span id="linearTerm">--</span>
+                </div>
+                <div class="equation" id="equationDisplay">
+                    Select a model
+                </div>
+            </div>
+
+            <div class="probability-display" id="probabilityDisplay">--%</div>
+            <div class="risk-tier" id="riskTier">--</div>
+            <div class="risk-interpretation" id="riskInterpretation">
+                Select a model and adjust features
+            </div>
+
+            <div class="contributions-panel">
+                <h3 onclick="toggleContributions()">📊 Feature Contributions <span style="font-size: 10px;">▼</span></h3>
+                <div id="contributionsContainer" class="contributions-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="infoModal" class="modal" onclick="if(event.target===this) toggleModal()">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleModal()">&times;</span>
+            <h2>Understanding Logistic Regression</h2>
+            
+            <h3>What is Logistic Regression?</h3>
+            <p>Logistic regression predicts binary outcomes (disease present/absent) using predictor variables. It outputs probabilities between 0 and 1 using the sigmoid function.</p>
+
+            <h3>How Coefficients Work</h3>
+            <ul>
+                <li><strong>Positive coefficients</strong>: Increase risk as feature value increases</li>
+                <li><strong>Negative coefficients</strong>: Decrease risk as feature value increases</li>
+                <li><strong>Large absolute values</strong>: Stronger influence on outcome</li>
+                <li><strong>Near-zero values</strong>: Minimal impact</li>
+            </ul>
+
+            <h3>Why Interpretability Matters</h3>
+            <p>In healthcare, clinicians need to understand <strong>why</strong> a model makes predictions to trust and act on them. Feature contributions help identify which risk factors are most important for individual patients.</p>
+
+            <h3>Formula</h3>
+            <p><strong>linear = m₁×x₁ + m₂×x₂ + ... + bias</strong></p>
+            <p><strong>probability = 1 / (1 + e<sup>-linear</sup>)</strong></p>
+        </div>
+    </div>
+
+    <div id="featurePopup" class="popup" onclick="if(event.target===this) closeFeaturePopup()">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closeFeaturePopup()">&times;</span>
+            <div id="featurePopupContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const models = {
+            cardiovascular: {
+                name: "Cardiovascular Disease Risk",
+                description: "Predicts CVD risk from lifestyle factors. Higher BP, BMI, smoking, and age increase risk; exercise reduces it.",
+                features: [
+                    { 
+                        name: "Systolic BP (mmHg)", 
+                        min: 90, max: 180, default: 120, unit: " mmHg",
+                        explanation: "Systolic Blood Pressure is the pressure in arteries when the heart beats. Normal is <120 mmHg. Higher values indicate hypertension, a major CVD risk factor. Coefficient +0.045 means each 1 mmHg increase raises risk probability.",
+                        coefExplanation: "Positive coefficient (+0.045): Higher blood pressure increases cardiovascular disease risk. This is a moderate risk factor."
+                    },
+                    { 
+                        name: "BMI (kg/m²)", 
+                        min: 18, max: 40, default: 25, unit: " kg/m²",
+                        explanation: "Body Mass Index measures body fat based on height and weight. Normal is 18.5-24.9. Higher BMI indicates obesity, increasing CVD risk through multiple pathways.",
+                        coefExplanation: "Positive coefficient (+0.082): Higher BMI increases risk. Obesity is a significant cardiovascular risk factor."
+                    },
+                    { 
+                        name: "Exercise (hrs)", 
+                        min: 0, max: 3, default: 0.5, unit: " hrs",
+                        explanation: "Daily exercise duration. Regular physical activity strengthens the heart, improves circulation, and reduces CVD risk factors like high blood pressure and cholesterol.",
+                        coefExplanation: "Negative coefficient (-0.35): Exercise is highly protective. More exercise significantly reduces cardiovascular disease risk. This is the strongest protective factor in this model."
+                    },
+                    { 
+                        name: "Cigarettes/day", 
+                        min: 0, max: 40, default: 0, unit: "",
+                        explanation: "Number of cigarettes smoked per day. Smoking damages blood vessels, increases blood pressure, and significantly raises CVD risk. Even 1-2 cigarettes daily increases risk.",
+                        coefExplanation: "Positive coefficient (+0.12): Smoking is a major risk factor. Each cigarette per day increases cardiovascular disease risk substantially."
+                    },
+                    { 
+                        name: "Age (years)", 
+                        min: 30, max: 80, default: 50, unit: " yrs",
+                        explanation: "Patient age. Age is a non-modifiable risk factor. As we age, arteries naturally stiffen and accumulate damage, increasing CVD risk over time.",
+                        coefExplanation: "Positive coefficient (+0.038): Age increases risk. This is a moderate, non-modifiable risk factor that accumulates over time."
+                    }
+                ],
+                coefficients: [0.045, 0.082, -0.35, 0.12, 0.038],
+                bias: -8.5,
+                riskThresholds: { low: 0.2, medium: 0.5 }
+            },
+            stress: {
+                name: "Stress Prediction",
+                description: "Uses wearable signals. Higher HRV, sleep, and activity reduce stress; elevated HR and cortisol increase it.",
+                features: [
+                    { 
+                        name: "HRV (ms)", 
+                        min: 20, max: 100, default: 50, unit: " ms",
+                        explanation: "Heart Rate Variability measures variation in time between heartbeats. Higher HRV indicates better autonomic nervous system function and lower stress. Lower HRV suggests chronic stress or poor recovery.",
+                        coefExplanation: "Negative coefficient (-0.025): Higher HRV reduces stress. This is a moderate protective factor indicating better stress resilience."
+                    },
+                    { 
+                        name: "Sleep (hrs)", 
+                        min: 4, max: 10, default: 7, unit: " hrs",
+                        explanation: "Average hours of sleep per night. Adequate sleep (7-9 hours) is crucial for stress recovery, hormone regulation, and mental health. Sleep deprivation increases cortisol and stress.",
+                        coefExplanation: "Negative coefficient (-0.28): Sleep is highly protective against stress. This is the strongest protective factor - adequate sleep significantly reduces stress levels."
+                    },
+                    { 
+                        name: "Resting HR (bpm)", 
+                        min: 50, max: 100, default: 70, unit: " bpm",
+                        explanation: "Resting Heart Rate is beats per minute at rest. Normal is 60-100 bpm. Elevated resting HR can indicate stress, anxiety, or poor cardiovascular fitness.",
+                        coefExplanation: "Positive coefficient (+0.042): Higher resting heart rate increases stress prediction. Elevated HR can be a sign of chronic stress or anxiety."
+                    },
+                    { 
+                        name: "Steps (k)", 
+                        min: 2, max: 20, default: 8, unit: "k",
+                        explanation: "Daily step count in thousands. Physical activity helps manage stress by releasing endorphins and improving mood. Sedentary lifestyle increases stress risk.",
+                        coefExplanation: "Negative coefficient (-0.15): More physical activity reduces stress. Regular movement is a strong protective factor against stress."
+                    },
+                    { 
+                        name: "Cortisol (nmol/L)", 
+                        min: 100, max: 500, default: 200, unit: " nmol/L",
+                        explanation: "Cortisol is the primary stress hormone. Normal morning levels are 100-200 nmol/L. Chronically elevated cortisol indicates high stress and can lead to health problems.",
+                        coefExplanation: "Positive coefficient (+0.0085): Higher cortisol increases stress prediction. This is a direct biomarker of stress levels, though the coefficient is relatively small."
+                    }
+                ],
+                coefficients: [-0.025, -0.28, 0.042, -0.15, 0.0085],
+                bias: 2.8,
+                riskThresholds: { low: 0.3, medium: 0.6 }
+            },
+            cancer: {
+                name: "Cancer Screening",
+                description: "Combines biomarkers with age and family history. Elevated markers and strong family history increase risk.",
+                features: [
+                    { 
+                        name: "CA-125 (U/mL)", 
+                        min: 0, max: 100, default: 15, unit: " U/mL",
+                        explanation: "CA-125 (Cancer Antigen 125) is a protein marker elevated in ovarian cancer and some other cancers. Normal is <35 U/mL. Elevated levels may indicate cancer, though it's not specific and can be elevated in benign conditions.",
+                        coefExplanation: "Positive coefficient (+0.032): Higher CA-125 increases cancer risk. This is a moderate risk factor, primarily for ovarian cancer screening."
+                    },
+                    { 
+                        name: "PSA (ng/mL)", 
+                        min: 0, max: 10, default: 2, unit: " ng/mL",
+                        explanation: "PSA (Prostate-Specific Antigen) is a protein produced by the prostate. Normal is <4 ng/mL. Elevated PSA can indicate prostate cancer, though it can also be elevated in benign prostatic hyperplasia (BPH) or prostatitis.",
+                        coefExplanation: "Positive coefficient (+0.18): PSA is a strong risk factor. Higher PSA significantly increases cancer risk prediction, primarily for prostate cancer."
+                    },
+                    { 
+                        name: "CEA (ng/mL)", 
+                        min: 0, max: 20, default: 3, unit: " ng/mL",
+                        explanation: "CEA (Carcinoembryonic Antigen) is a protein marker elevated in colorectal cancer and some other cancers. Normal is <3 ng/mL in non-smokers, <5 ng/mL in smokers. Elevated levels may indicate cancer presence.",
+                        coefExplanation: "Positive coefficient (+0.095): Higher CEA increases cancer risk. This is a moderate-strong risk factor, commonly used for colorectal cancer screening."
+                    },
+                    { 
+                        name: "Age (years)", 
+                        min: 40, max: 80, default: 60, unit: " yrs",
+                        explanation: "Patient age. Cancer risk increases significantly with age as cellular damage accumulates over time. Most cancers are more common in older adults.",
+                        coefExplanation: "Positive coefficient (+0.025): Age increases cancer risk. This is a moderate, non-modifiable risk factor that accumulates over time."
+                    },
+                    { 
+                        name: "Family History", 
+                        min: 0, max: 5, default: 1, unit: "",
+                        explanation: "Family history score (0-5) based on number and closeness of relatives with cancer. Strong family history suggests genetic predisposition and significantly increases cancer risk.",
+                        coefExplanation: "Positive coefficient (+0.42): Family history is the strongest risk factor. This is the most influential predictor, indicating strong genetic or shared environmental risk factors."
+                    }
+                ],
+                coefficients: [0.032, 0.18, 0.095, 0.025, 0.42],
+                bias: -6.2,
+                riskThresholds: { low: 0.15, medium: 0.4 }
+            },
+            cognitive: {
+                name: "Cognitive Decline",
+                description: "Higher MMSE, education, activity, and social engagement reduce risk; age increases it.",
+                features: [
+                    { 
+                        name: "MMSE Score", 
+                        min: 15, max: 30, default: 28, unit: "",
+                        explanation: "MMSE (Mini-Mental State Examination) assesses cognitive function. Scores range 0-30. Higher scores indicate better cognitive function. Scores <24 suggest cognitive impairment.",
+                        coefExplanation: "Negative coefficient (-0.15): Higher MMSE score reduces cognitive decline risk. This is a strong protective factor - better current cognitive function predicts lower future decline."
+                    },
+                    { 
+                        name: "Education (yrs)", 
+                        min: 8, max: 20, default: 14, unit: " yrs",
+                        explanation: "Years of formal education. Higher education is associated with 'cognitive reserve' - the brain's ability to compensate for damage. More education delays cognitive decline.",
+                        coefExplanation: "Negative coefficient (-0.12): More education reduces cognitive decline risk. Education builds cognitive reserve, providing protection against decline."
+                    },
+                    { 
+                        name: "Activity (days/wk)", 
+                        min: 0, max: 7, default: 3, unit: " days",
+                        explanation: "Days per week of physical activity. Regular exercise improves blood flow to the brain, promotes neurogenesis, and reduces cognitive decline risk significantly.",
+                        coefExplanation: "Negative coefficient (-0.22): Physical activity is highly protective. This is the strongest protective factor - regular exercise significantly reduces cognitive decline risk."
+                    },
+                    { 
+                        name: "Age (years)", 
+                        min: 60, max: 90, default: 75, unit: " yrs",
+                        explanation: "Patient age. Cognitive decline risk increases with age as brain cells naturally age and accumulate damage over time.",
+                        coefExplanation: "Positive coefficient (+0.055): Age increases cognitive decline risk. This is a moderate, non-modifiable risk factor."
+                    },
+                    { 
+                        name: "Social Score", 
+                        min: 0, max: 10, default: 6, unit: "",
+                        explanation: "Social engagement score (0-10) measuring frequency of social interactions. Social engagement keeps the brain active, reduces depression, and is protective against cognitive decline.",
+                        coefExplanation: "Negative coefficient (-0.18): Social engagement is highly protective. Strong social connections significantly reduce cognitive decline risk."
+                    }
+                ],
+                coefficients: [-0.15, -0.12, -0.22, 0.055, -0.18],
+                bias: 1.2,
+                riskThresholds: { low: 0.25, medium: 0.55 }
+            },
+            infection: {
+                name: "Infection Risk",
+                description: "Elevated temp, WBC, CRP, respiratory rate, and longer symptom duration increase infection probability.",
+                features: [
+                    { 
+                        name: "Temperature (°F)", 
+                        min: 96, max: 104, default: 98.6, unit: " °F",
+                        explanation: "Body temperature. Normal is 98.6°F (37°C). Fever (>100.4°F) is a key sign of infection as the body raises temperature to fight pathogens.",
+                        coefExplanation: "Positive coefficient (+0.18): Temperature is the strongest risk factor. Fever is a primary indicator of active infection."
+                    },
+                    { 
+                        name: "WBC (×10³/μL)", 
+                        min: 3, max: 20, default: 7, unit: " ×10³",
+                        explanation: "WBC (White Blood Cell Count) measures immune cells. Normal is 4-11 ×10³/μL. Elevated WBC indicates the immune system is fighting an infection.",
+                        coefExplanation: "Positive coefficient (+0.095): Higher WBC increases infection risk. Elevated white blood cells indicate active immune response to infection."
+                    },
+                    { 
+                        name: "CRP (mg/L)", 
+                        min: 0, max: 200, default: 5, unit: " mg/L",
+                        explanation: "CRP (C-Reactive Protein) is an inflammatory marker. Normal is <3 mg/L. Elevated CRP indicates inflammation, often from infection. Levels >10 mg/L suggest significant inflammation.",
+                        coefExplanation: "Positive coefficient (+0.012): Higher CRP increases infection risk. This is a direct inflammatory marker, though the coefficient is relatively small."
+                    },
+                    { 
+                        name: "Resp Rate (/min)", 
+                        min: 12, max: 30, default: 16, unit: " /min",
+                        explanation: "Respiratory rate (breaths per minute). Normal is 12-20/min. Elevated respiratory rate can indicate respiratory infection, sepsis, or compensation for metabolic acidosis from infection.",
+                        coefExplanation: "Positive coefficient (+0.15): Higher respiratory rate increases infection risk. Elevated breathing rate is a strong indicator of respiratory or systemic infection."
+                    },
+                    { 
+                        name: "Days Since Onset", 
+                        min: 0, max: 14, default: 2, unit: " days",
+                        explanation: "Days since symptom onset. Longer duration may indicate more established infection, though very early infections may also be high risk if symptoms are severe.",
+                        coefExplanation: "Positive coefficient (+0.065): Longer symptom duration increases infection risk. More established infections may have higher probability."
+                    }
+                ],
+                coefficients: [0.18, 0.095, 0.012, 0.15, 0.065],
+                bias: -12.5,
+                riskThresholds: { low: 0.2, medium: 0.5 }
+            }
+        };
+
+        let currentModel = null;
+        let currentValues = [];
+
+        function toggleModal() {
+            document.getElementById('infoModal').classList.toggle('active');
+        }
+
+        function showFeaturePopup(featureIndex) {
+            if (!currentModel) return;
+            const feature = currentModel.features[featureIndex];
+            const coef = currentModel.coefficients[featureIndex];
+            const content = document.getElementById('featurePopupContent');
+            content.innerHTML = `
+                <h3>${feature.name}</h3>
+                <p><strong>What it is:</strong> ${feature.explanation}</p>
+                <p><strong>Coefficient meaning:</strong> ${feature.coefExplanation}</p>
+                <p><strong>Current value:</strong> ${currentValues[featureIndex]}${feature.unit}</p>
+                <p><strong>Coefficient value:</strong> ${coef >= 0 ? '+' : ''}${coef.toFixed(3)}</p>
+            `;
+            document.getElementById('featurePopup').classList.add('active');
+        }
+
+        function closeFeaturePopup() {
+            document.getElementById('featurePopup').classList.remove('active');
+        }
+
+        function toggleContributions() {
+            const container = document.getElementById('contributionsContainer');
+            container.classList.toggle('collapsed');
+        }
+
+        function loadModel() {
+            const select = document.getElementById('modelSelect');
+            const modelKey = select.value;
+            
+            if (!modelKey || !models[modelKey]) {
+                document.getElementById('slidersContainer').innerHTML = '';
+                document.getElementById('equationDisplay').textContent = 'Select a model';
+                document.getElementById('probabilityDisplay').textContent = '--%';
+                document.getElementById('riskTier').textContent = '--';
+                document.getElementById('riskInterpretation').textContent = 'Select a model and adjust features';
+                document.getElementById('contributionsContainer').innerHTML = '';
+                document.getElementById('linearTerm').textContent = '--';
+                document.getElementById('modelInfo').style.display = 'none';
+                document.getElementById('coefficientsPanel').style.display = 'none';
+                return;
+            }
+
+            currentModel = models[modelKey];
+            currentValues = currentModel.features.map(f => f.default);
+
+            // Show model info
+            const modelInfo = document.getElementById('modelInfo');
+            modelInfo.innerHTML = `<strong>${currentModel.name}</strong><br>${currentModel.description}`;
+            modelInfo.style.display = 'block';
+
+            // Show coefficients
+            const coefficientsList = document.getElementById('coefficientsList');
+            coefficientsList.innerHTML = '';
+            
+            currentModel.features.forEach((feature, index) => {
+                const coef = currentModel.coefficients[index];
+                const absCoef = Math.abs(coef);
+                const isPositive = coef >= 0;
+                const isNeutral = absCoef < 0.01;
+                
+                let coefClass = 'coef-neutral';
+                if (!isNeutral) {
+                    coefClass = isPositive ? 'coef-positive' : 'coef-negative';
+                }
+                
+                const coefItem = document.createElement('div');
+                coefItem.className = 'coef-item';
+                coefItem.innerHTML = `
+                    <span>
+                        ${feature.name}
+                        <span class="info-icon-small" onclick="showFeaturePopup(${index})" title="Click for explanation">ℹ</span>
+                    </span>
+                    <span class="${coefClass}">${coef >= 0 ? '+' : ''}${coef.toFixed(3)}</span>
+                `;
+                coefficientsList.appendChild(coefItem);
+            });
+            
+            const biasItem = document.createElement('div');
+            biasItem.className = 'coef-item';
+            biasItem.style.borderTop = '2px solid #e2e8f0';
+            biasItem.style.marginTop = '8px';
+            biasItem.style.paddingTop = '8px';
+            biasItem.innerHTML = `
+                <span><strong>Bias (Intercept)</strong></span>
+                <span style="color: #2d3748; background: #e2e8f0; padding: 3px 8px; border-radius: 4px; font-weight: 600; font-family: 'SF Mono', 'Monaco', 'Courier New', monospace; font-size: 11px;">${currentModel.bias >= 0 ? '+' : ''}${currentModel.bias.toFixed(3)}</span>
+            `;
+            coefficientsList.appendChild(biasItem);
+            
+            document.getElementById('coefficientsPanel').style.display = 'block';
+
+            // Generate sliders
+            const container = document.getElementById('slidersContainer');
+            container.innerHTML = '';
+            
+            currentModel.features.forEach((feature, index) => {
+                const sliderGroup = document.createElement('div');
+                sliderGroup.className = 'slider-group';
+                
+                sliderGroup.innerHTML = `
+                    <div class="slider-label">
+                        <span>${feature.name}</span>
+                        <span id="value${index}">${feature.default}${feature.unit}</span>
+                    </div>
+                    <input 
+                        type="range" 
+                        class="slider" 
+                        id="slider${index}"
+                        min="${feature.min}" 
+                        max="${feature.max}" 
+                        step="${feature.name.includes('BMI') || feature.name.includes('Exercise') || feature.name.includes('Sleep') || feature.name.includes('Temperature') ? '0.1' : '1'}"
+                        value="${feature.default}"
+                        oninput="updateValue(${index}, this.value)"
+                    >
+                `;
+                
+                container.appendChild(sliderGroup);
+            });
+
+            const resetBtn = document.createElement('button');
+            resetBtn.className = 'reset-btn';
+            resetBtn.textContent = 'Reset to Defaults';
+            resetBtn.onclick = resetToDefaults;
+            container.appendChild(resetBtn);
+
+            calculate();
+        }
+
+        function resetToDefaults() {
+            if (!currentModel) return;
+            currentModel.features.forEach((feature, index) => {
+                currentValues[index] = feature.default;
+                const slider = document.getElementById(`slider${index}`);
+                if (slider) {
+                    slider.value = feature.default;
+                    updateValue(index, feature.default);
+                }
+            });
+        }
+
+        function updateValue(index, value) {
+            const numValue = parseFloat(value);
+            currentValues[index] = numValue;
+            const feature = currentModel.features[index];
+            document.getElementById(`value${index}`).textContent = numValue.toFixed(feature.unit.includes('hrs') || feature.unit.includes('kg/m²') || feature.unit.includes('°F') ? 1 : 0) + feature.unit;
+            calculate();
+        }
+
+        function calculate() {
+            if (!currentModel) return;
+
+            let linear = currentModel.bias;
+            let equationParts = [];
+            
+            currentModel.coefficients.forEach((coef, i) => {
+                const contribution = coef * currentValues[i];
+                linear += contribution;
+                equationParts.push({
+                    coef: coef.toFixed(3),
+                    value: currentValues[i].toFixed(currentModel.features[i].unit.includes('hrs') || currentModel.features[i].unit.includes('kg/m²') || currentModel.features[i].unit.includes('°F') ? 1 : 0),
+                    contribution: contribution
+                });
+            });
+
+            const probability = 1 / (1 + Math.exp(-linear));
+
+            document.getElementById('linearTerm').textContent = linear.toFixed(4);
+            
+            let equationHTML = 'linear = ';
+            equationParts.forEach((part, i) => {
+                const sign = part.contribution >= 0 ? '+' : '';
+                equationHTML += `${i > 0 ? sign : ''}<span class="coef">${part.coef}</span> × <span class="val">${part.value}</span> `;
+            });
+            equationHTML += `${currentModel.bias >= 0 ? '+' : ''}<span class="coef">${currentModel.bias.toFixed(3)}</span><br>`;
+            equationHTML += `prob = 1/(1+e<sup>-linear</sup>) = <strong>${(probability * 100).toFixed(2)}%</strong>`;
+            document.getElementById('equationDisplay').innerHTML = equationHTML;
+
+            const probDisplay = document.getElementById('probabilityDisplay');
+            probDisplay.textContent = (probability * 100).toFixed(2) + '%';
+            
+            const riskTier = document.getElementById('riskTier');
+            const riskInterpretation = document.getElementById('riskInterpretation');
+            
+            if (probability < currentModel.riskThresholds.low) {
+                riskTier.className = 'risk-tier risk-low';
+                riskTier.textContent = 'Low Risk';
+                riskInterpretation.textContent = `Probability: ${(probability * 100).toFixed(2)}%. Low risk level with favorable conditions.`;
+                probDisplay.style.background = '#c6f6d5';
+                probDisplay.style.color = '#22543d';
+            } else if (probability < currentModel.riskThresholds.medium) {
+                riskTier.className = 'risk-tier risk-medium';
+                riskTier.textContent = 'Moderate Risk';
+                riskInterpretation.textContent = `Probability: ${(probability * 100).toFixed(2)}%. Moderate risk - monitoring recommended.`;
+                probDisplay.style.background = '#fefcbf';
+                probDisplay.style.color = '#744210';
+            } else {
+                riskTier.className = 'risk-tier risk-high';
+                riskTier.textContent = 'High Risk';
+                riskInterpretation.textContent = `Probability: ${(probability * 100).toFixed(2)}%. High risk - immediate attention may be necessary.`;
+                probDisplay.style.background = '#fed7d7';
+                probDisplay.style.color = '#742a2a';
+            }
+
+            updateContributions(equationParts);
+        }
+
+        function updateContributions(parts) {
+            const container = document.getElementById('contributionsContainer');
+            container.innerHTML = '';
+            // Always start collapsed to reduce scrolling
+            container.classList.add('collapsed');
+
+            const maxAbs = Math.max(...parts.map(p => Math.abs(p.contribution)), 0.1);
+
+            parts.forEach((part, index) => {
+                const contributionItem = document.createElement('div');
+                contributionItem.className = 'contribution-item';
+
+                const absContribution = Math.abs(part.contribution);
+                const percentage = (absContribution / maxAbs) * 100;
+                const isPositive = part.contribution >= 0;
+                const isNeutral = Math.abs(part.contribution) < 0.01;
+
+                let barClass = 'contribution-bar ';
+                if (isNeutral) {
+                    barClass += 'contribution-neutral';
+                } else if (isPositive) {
+                    barClass += 'contribution-positive';
+                } else {
+                    barClass += 'contribution-negative';
+                }
+
+                contributionItem.innerHTML = `
+                    <div class="contribution-label">
+                        <span>${currentModel.features[index].name}</span>
+                        <span>${part.contribution >= 0 ? '+' : ''}${part.contribution.toFixed(3)}</span>
+                    </div>
+                    <div class="contribution-bar-container">
+                        <div class="${barClass}" style="width: ${isNeutral ? 5 : percentage}%;">
+                            ${!isNeutral ? part.contribution.toFixed(3) : ''}
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(contributionItem);
+            });
+        }
+    </script>
+</body>
+</html>

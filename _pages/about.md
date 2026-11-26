@@ -9,7 +9,9 @@ redirect_from:
 ---
 
 
-My research consists of the use of human-centered artificial intelligence (AI) to develop novel digital diagnostics, screening tools, therapeutics, and interventions for a wide range of health conditions that I or my trainees care about. Our projects are focused on both community and consumer digital health informatics. Community digital health informatics is the design, deployment, and evaluation of digital tools with and within community settings, such as clinics, schools, public health departments, and nonprofit partners. Consumer digital health informatics is the use of data from consumer devices such as smartphones, smartwatches, other wearables (think Oura ring for example), and consumer health devices (think blood pressure monitors for example) to derive actionable health insights.
+I am an Assistant Professor in the Division of Clinical Informatics and Digital Transformation (DoC-IT) in the Department of Medicine at the University of California, San Francisco (UCSF). Prior to this role, I was an Assistant Professor in the Information & Computer Sciences department at the University of Hawaiʻi at Mānoa until January 2025. Prior to that, I completed my PhD in Bioengineering at Stanford University, MS in Computer Science at Stanford University, and BA in Computer Science at Rice University.
 
-More details can be found on my <a href="https://profiles.ucsf.edu/peter.washington" target="_blank">UCSF profile page</a> and my research lab page for the <a href="https://techlab.ucsf.edu/" target="_blank">UCSF TECH Lab</a> (the "TECH" stands for "Technologies Empowering Community and Consumer Health"). 
+My research group at UCSF, funded by both the NIH and NSF, works on developing novel patient-facing digital diagnostics, screening tools, therapeutics, and interventions for a wide range of health conditions. We use a variety of methods such as personalized foundation models using mobile and wearable data to individualize our digital systems, agentic AI to increase engagement in a safe manner, human-centered AI to make our engineered solutions trustworthy, and human-in-the-loop AI.
+
+More details can be found on my <a href="https://profiles.ucsf.edu/peter.washington" target="_blank">UCSF profile page</a> and my research lab page for the <a href="https://techlab.ucsf.edu/" target="_blank">UCSF TECH Lab</a>.
 
